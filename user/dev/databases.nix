@@ -1,0 +1,14 @@
+# ------------------------------------------
+# user/dev/databases.nix module
+# ------------------------------------------
+
+{ config, pkgs, ... }:
+
+{
+  # Requirements
+  # ------------------------------------------
+  home.packages = with pkgs; [
+    redis
+    postgresql
+  ];
+}
