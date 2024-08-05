@@ -5,8 +5,13 @@
 # Instructions
 
 # Content
+
 In this repository, you will find:
-- 
+- Flake configuration.
+- Home Manager Configuration.
+- System Configuration.
+- System & home Modules.
+- An instaler for deploying a working system with the use of one bash command.
 
 # References
 - [NixOS Packages, NixOS.org](https://search.nixos.org/packages)
