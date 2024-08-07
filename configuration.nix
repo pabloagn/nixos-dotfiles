@@ -10,15 +10,33 @@
   # ------------------------------------------
   imports =
     [
+      # Auto-generated configuration file (system-dependent)
       ./hardware-configuration.nix
 
+      # Bootloader
+      ./system/boot/bootloader.nix
 
+      # Hardware
+      ./system/hardware/audio.nix
+      ./system/hardware/bluetooth.nix
+      ./system/hardware/keyboard.nix
+      ./system/hardware/mouse.nix
+      ./system/hardware/printers.nix
+      ./system/hardware/video.nix
 
+      # Base modules (the standard packages)
+      ./system/base/browsers.nix
+      ./system/base/editors.nix
+      ./system/base/nixos.nix
 
+      # User interface
+      ./system/interface/fonts.nix
 
+      # Terminal Emulators & Shells
+      ./system/term/shell.nix
 
-
-      #./desktops/bspwm.nix
+      # User-level configuration
+      ./system/users/users.nix
     ];
 
   # ------------------------------------------
@@ -65,8 +83,6 @@
   services.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-
-
   # ------------------------------------------
   # Packages
   # ------------------------------------------
@@ -77,12 +93,6 @@
 
   # Allow experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-
-environment.systemPackages = with pkgs; [
-    # Insert packages here
-  ];
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
