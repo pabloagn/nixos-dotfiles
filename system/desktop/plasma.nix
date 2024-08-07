@@ -8,17 +8,21 @@
   # Requirements
   # ------------------------------------------
   environment.systemPackages = with pkgs; [
-    zsh
   ];
 
   # Options
   # ------------------------------------------
 
-  # Set Zsh as the default shell for the system
-  environment.shells = with pkgs; [ zsh bash ]; 
-  users.defaultUserShell = pkgs.zsh;
+  # Enable xserver & Plasma (xserver-based)
+  services.xserver.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
+  };
 
-  programs.zsh = {
-    enable = true;
+  # Configure xserver
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us,es";
+    xkbOptions = "eurosign:e, compose:menu, grp:alt_space_toggle";
+    xkbVariant = "";
   };
 }

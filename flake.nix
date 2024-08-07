@@ -19,7 +19,7 @@
     in {
     # System configuration
     nixosConfigurations = {
-      sanctum-nixos = lib.nixosSystem {
+      nixos = lib.nixosSystem {
         # Here we inherit the system variable declared in outputs 
         inherit system;
         modules = [./configuration.nix];

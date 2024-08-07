@@ -14,7 +14,7 @@ let myAliases = {
   fd = "fd -Lu";
   w3m = "w3m -no-cookie -v";
   neofetch = "disfetch";
-  grep = "ripgrep";
+  grep = "rg";
 };
 in
 # Configuration definition
@@ -22,7 +22,7 @@ in
   # Module imports
   # ------------------------------------------
   imports = [
-#    ./user/wm/wm.nix
+    #./user/wm/wm.nix
     # Dev
     ./user/dev/databases.nix
     ./user/dev/editors.nix
@@ -112,10 +112,9 @@ in
 
 
 
-  programs.direnv.enable = true;
-  programs.direnv.enableZshIntegration = true;
-  programs.direnv.nix-direnv.enable = true;
-
+#  programs.direnv.enable = true;
+#  programs.direnv.enableZshIntegration = true;
+#  programs.direnv.nix-direnv.enable = true;
 
 
 

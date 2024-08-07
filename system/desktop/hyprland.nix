@@ -1,24 +1,25 @@
 # ------------------------------------------
-# system/term/shell.nix module
+# system/desktop/hyprland.nix module
 # ------------------------------------------
 
 { config, pkgs, ... }:
 
 {
+  # Module Imports
+  imports = [
+  # Base hyprland config
+    ./hyprland-base.nix
+  ];
+
   # Requirements
   # ------------------------------------------
   environment.systemPackages = with pkgs; [
-    zsh
+    hyprland
   ];
 
   # Options
   # ------------------------------------------
+  programs.hyprland.enable = true;
 
-  # Set Zsh as the default shell for the system
-  environment.shells = with pkgs; [ zsh bash ]; 
-  users.defaultUserShell = pkgs.zsh;
-
-  programs.zsh = {
-    enable = true;
   };
 }

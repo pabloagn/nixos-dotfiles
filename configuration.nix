@@ -24,6 +24,12 @@
       ./system/hardware/printers.nix
       ./system/hardware/video.nix
 
+      # Desktop & Windows Managers
+      #./system/desktop/hyperland.nix
+      ./system/desktop/hyperland-intel.nix
+      #./system/desktop/bspwm.nix
+      #./system/desktop/plasma.nix
+
       # Base modules (the standard packages)
       ./system/base/browsers.nix
       ./system/base/editors.nix
@@ -42,7 +48,7 @@
   # ------------------------------------------
   # Host Name (Machine Name)
   # ------------------------------------------
-  networking.hostName = "sanctum-nixos";
+  networking.hostName = "nixos";
 
   # ------------------------------------------
   # Networking
@@ -58,30 +64,17 @@
   networking.networkmanager.enable = true;
 
   # ------------------------------------------
-  # Time zone, language & locale
-  # ------------------------------------------
-
-
-  # ------------------------------------------
   # Desktop Environment & Window Manager
   # ------------------------------------------
 
-  # X11 Window System
-  # ------------------------------------------
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us,es";
-    xkbOptions = "eurosign:e, compose:menu, grp:alt_space_toggle";
-    xkbVariant = "";
-  };
 
   # KDE Plasma Desktop Environment
   # ------------------------------------------
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+
+  #services.xserver.displayManager.defaultSession = "none+bspwm";
+  #services.xserver.windowManager.bspwm.enable = true;
 
   # ------------------------------------------
   # Packages

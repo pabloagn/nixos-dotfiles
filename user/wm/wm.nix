@@ -9,6 +9,7 @@
   # ------------------------------------------
   home.packages = with pkgs; [
     picom
+#    nur.repos.reedrw.picom-next-ibhagwan
     bspwm
     sxhkd
     polybar
@@ -24,13 +25,17 @@
   # Services
   # ------------------------------------------
 
-  # picom compositor
   services.picom = {
     enable = true;
-    blur = true;
-  };
-
-
-
-  };
+    settings = {
+      blur =
+      {
+        method = "gaussian";
+        size = 10;
+        deviation = 5.0;
+        };
+      corner-radius = 8.0;
+      round-borders = 1;
+      };
+    };
 }

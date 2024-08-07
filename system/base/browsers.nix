@@ -13,7 +13,7 @@
 
   # Options
   # ------------------------------------------
-  programs.firefox {
+  programs.firefox = {
     enable = true;
   };
 }
