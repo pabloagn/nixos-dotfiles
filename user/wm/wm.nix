@@ -12,6 +12,9 @@
     bspwm
     sxhkd
     polybar
+    dunst
+    rofi
+    xclip
   ];
 
   # Options
@@ -22,7 +25,7 @@
   # ------------------------------------------
 
   # picom compositor
-  services.picom {
+  services.picom = {
     enable = true;
     blur = true;
   };

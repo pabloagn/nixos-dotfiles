@@ -19,6 +19,34 @@ let myAliases = {
 in
 # Configuration definition
 {
+  # Module imports
+  # ------------------------------------------
+  imports = [
+#    ./user/wm/wm.nix
+    # Dev
+    ./user/dev/databases.nix
+    ./user/dev/editors.nix
+    ./user/dev/languages.nix
+
+    # Media
+    ./user/media/media.nix
+
+    # Productivity
+    ./user/productivity/browsers.nix
+    ./user/productivity/general.nix
+    ./user/productivity/mail.nix
+
+    # Nix
+    ./user/nix/nix_development.nix
+
+    # Term
+    ./user/term/emulators.nix
+
+    # Utils
+    ./user/utils/general.nix
+    ./user/utils/terminal.nix
+  ];
+
   # User & state
   # ------------------------------------------
   home.username = "pabloagnck";
@@ -32,67 +60,6 @@ in
   # ------------------------------------------
   # Packages
   # ------------------------------------------
-  home.packages = with pkgs; [
-
-    # Desktop, window managers, compositors & daemons
-    # ------------------------------------------
-    dunst
-    polybar
-    rofi
-    sxhkd
-    xclip
-    # dmenu-rs
-    # nitrogen
-
-    # Editors & IDEs
-    # ------------------------------------------
-    neovim
-    rstudio
-    vscodium
-
-    # Media
-    # ------------------------------------------
-    audacious
-    feh # Lightweight image viewer
-    inkscape
-    obs-studio
-    tidal-dl
-    ulauncher
-    vlc
-    yt-dlp # Previously youtube-dl
-    # shotcut
-    # davinci-resolve
-
-    # Nix development
-    # ------------------------------------------
-    cachix
-    nil # Nix language server
-    nix-info
-    nixpkgs-fmt
-    sbomnix
-
-    # Productivity
-    # ------------------------------------------
-    _1password-gui
-    filezilla 
-    flameshot
-    libreoffice
-    obsidian
-    protonvpn-cli
-    protonvpn-gui
-    texmaker
-    virtualbox
-
-    # Torrents
-    # ------------------------------------------
-    transmission
-
-    # Utilities - Others
-    # ------------------------------------------
-    direnv
-    nix-direnv
-
-  ];
 
   home.file = {
 #    ".config/nvim/init.vim".text = ''
@@ -103,8 +70,8 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-    NODE_REPL_HISTORY = "$HOME/.cache/node/.node_repl_history"
-    PYTHON_HISTORY = "$HOME/.cache/python/.python_history"
+    NODE_REPL_HISTORY = "$HOME/.cache/node/.node_repl_history";
+    PYTHON_HISTORY = "$HOME/.cache/python/.python_history";
 };
 
   # Let Home Manager install and manage itself.

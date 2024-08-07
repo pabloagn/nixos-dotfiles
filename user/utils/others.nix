@@ -1,0 +1,14 @@
+# ------------------------------------------
+# user/utils/others.nix module
+# ------------------------------------------
+
+{ config, pkgs, ... }:
+
+{
+  # Requirements
+  # ------------------------------------------
+  home.packages = with pkgs; [
+    direnv
+    nix-direnv
+  ];
+}
