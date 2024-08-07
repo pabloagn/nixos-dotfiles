@@ -43,7 +43,7 @@ in
     ./user/term/emulators.nix
 
     # Utils
-    ./user/utils/general.nix
+    ./user/utils/others.nix
     ./user/utils/terminal.nix
   ];
 
