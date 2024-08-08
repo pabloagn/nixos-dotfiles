@@ -8,7 +8,6 @@
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
-    neovim
     rstudio
     vscodium
   ];

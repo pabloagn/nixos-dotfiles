@@ -31,6 +31,9 @@ in
     ./user/defaults/defaults.nix
     ./user/defaults/environment_variables.nix
 
+    # Desktop
+    ./user/desktop/desktop.nix
+
     # Dev
     ./user/dev/databases.nix
     ./user/dev/editors.nix

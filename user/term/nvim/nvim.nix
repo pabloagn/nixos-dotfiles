@@ -1,5 +1,5 @@
 # ------------------------------------------
-# user/term/kitty/kitty.nix module
+# user/term/nvim/nvim.nix module
 # ------------------------------------------
 
 { config, pkgs, ... }:
@@ -9,26 +9,17 @@
   # Packages
   # ------------------------------------------
   home.packages = with pkgs; [
-    kitty
+    neovim
   ];
-
 
   # ------------------------------------------
   # Program Options
   # ------------------------------------------
-  programs.kitty = {
+  programs.nvim = {
     enable = true;
   };
 
-  # ------------------------------------------
-  # Configuration Files
-  # ------------------------------------------
-  xdg.configFile."kitty/kitty.conf" = {
-		  source = ./kitty.conf;
+  xdg.configFile."nvim/init.vim" = {
+		  source = ./init.vim;
 	 };
-
-  xdg.configFile."kitty/themes/catppuccin-mocha.conf" = {
-		  source = ./themes/catppuccin-mocha.conf;
-	 };
-
 }

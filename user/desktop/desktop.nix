@@ -1,5 +1,5 @@
 # ------------------------------------------
-# user/term/emulators.nix module
+# user/desktop/desktop.nix module
 # ------------------------------------------
 
 { config, pkgs, ... }:
@@ -9,10 +9,8 @@
   # Module imports
   # ------------------------------------------
   imports = [
-    ./lf/lf.nix
-    ./wezterm/wezterm.nix
-    ./kitty/kitty.nix
-    ./btop/btop.nix
+    ./waybar/waybar.nix
+#    ./hypr/hyprland.nix
     ];
 
   # Packages

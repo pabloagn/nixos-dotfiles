@@ -1,5 +1,5 @@
 # ------------------------------------------
-# user/term/kitty/kitty.nix module
+# user/desktop/waybar/waybar.nix module
 # ------------------------------------------
 
 { config, pkgs, ... }:
@@ -9,26 +9,20 @@
   # Packages
   # ------------------------------------------
   home.packages = with pkgs; [
-    kitty
   ];
-
 
   # ------------------------------------------
   # Program Options
   # ------------------------------------------
-  programs.kitty = {
+  programs.waybar = {
     enable = true;
   };
 
-  # ------------------------------------------
-  # Configuration Files
-  # ------------------------------------------
-  xdg.configFile."kitty/kitty.conf" = {
-		  source = ./kitty.conf;
+  xdg.configFile."waybar/config.jsonc" = {
+		  source = ./config.jsonc;
 	 };
 
-  xdg.configFile."kitty/themes/catppuccin-mocha.conf" = {
-		  source = ./themes/catppuccin-mocha.conf;
+  xdg.configFile."waybar/style.css" = {
+		  source = ./style.css;
 	 };
-
 }

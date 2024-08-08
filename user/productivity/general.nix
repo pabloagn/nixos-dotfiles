@@ -12,7 +12,6 @@
     okular
     _1password-gui
     filezilla 
-    flameshot
     libreoffice
     obsidian
     protonvpn-cli
