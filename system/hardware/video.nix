@@ -8,7 +8,7 @@
   # Packages
   # ------------------------------------------
   environment.systemPackages = with pkgs; [
-    # Insert module packages here
+    brightnessctl
   ];
 
   # Options

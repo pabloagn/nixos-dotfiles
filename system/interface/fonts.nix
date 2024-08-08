@@ -36,8 +36,9 @@
     font-awesome
     powerline-fonts
     powerline-symbols
+    nerdfonts
 
     # Note: We'll only install FiraCode & Droid Sans Mono from nerdfonts due to package size
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "NerdFontsSymbolsOnly" ]; })
+    # (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "NerdFontsSymbolsOnly" ]; })
   ];
 }

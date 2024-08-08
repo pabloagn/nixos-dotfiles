@@ -6,8 +6,13 @@
  
 # Variable definition
 let myAliases = {
-  ll = "eza --icons -l -T -L=1";
-  la = "ls -la";
+  vim = "nvim";
+  vi = "nvim";
+  v = "nvim";
+  cl = "clear";
+  ls = "eza --icons -l -T -L=1";
+  l2 = "eza --icons -l -T -L=2";
+  la = "eza --icons -la -T -L=1";
   ".." = "cd ..";
   cat = "bat";
   htop = "btm";
@@ -22,7 +27,10 @@ in
   # Module imports
   # ------------------------------------------
   imports = [
-    #./user/wm/wm.nix
+    # Defaults (includes MIME types, default apps & environment variables)
+    ./user/defaults/defaults.nix
+    ./user/defaults/environment_variables.nix
+
     # Dev
     ./user/dev/databases.nix
     ./user/dev/editors.nix
@@ -41,6 +49,7 @@ in
 
     # Term
     ./user/term/emulators.nix
+    ./user/term/lf.nix
 
     # Utils
     ./user/utils/others.nix
@@ -57,6 +66,11 @@ in
   # ------------------------------------------
   nixpkgs.config.allowUnfree = true;
 
+  # Path
+  home.sessionPath = [
+    "~/.dotfiles"
+  ];
+
   # ------------------------------------------
   # Packages
   # ------------------------------------------
@@ -66,13 +80,6 @@ in
 #   '';
 
   };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    NODE_REPL_HISTORY = "$HOME/.cache/node/.node_repl_history";
-    PYTHON_HISTORY = "$HOME/.cache/python/.python_history";
-};
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

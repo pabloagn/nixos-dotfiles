@@ -8,6 +8,11 @@
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
+    tmux
+    pistol
+    grim
+    slurp
+    wl-clipboard
     unzip
     bc
     btop

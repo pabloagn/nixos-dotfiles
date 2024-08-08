@@ -23,10 +23,11 @@
       ./system/hardware/mouse.nix
       ./system/hardware/printers.nix
       ./system/hardware/video.nix
+      ./system/hardware/wifi.nix
 
       # Desktop & Windows Managers
       #./system/desktop/hyperland.nix
-      ./system/desktop/hyperland-intel.nix
+      ./system/desktop/hyprland-intel.nix
       #./system/desktop/bspwm.nix
       #./system/desktop/plasma.nix
 
@@ -34,6 +35,7 @@
       ./system/base/browsers.nix
       ./system/base/editors.nix
       ./system/base/nixos.nix
+      ./system/base/others.nix
 
       # User interface
       ./system/interface/fonts.nix
@@ -71,7 +73,7 @@
   # KDE Plasma Desktop Environment
   # ------------------------------------------
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  #services.displayManager.sddm.enable = true;
 
   #services.xserver.displayManager.defaultSession = "none+bspwm";
   #services.xserver.windowManager.bspwm.enable = true;

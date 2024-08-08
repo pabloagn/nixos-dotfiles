@@ -8,8 +8,13 @@
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
+    imagemagick
+    mpv
+    clementine
     audacious
     feh
+    sxiv
+    exiv2
     inkscape
     obs-studio
     tidal-dl

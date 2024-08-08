@@ -8,6 +8,8 @@
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
+    xfce.thunar
+    okular
     _1password-gui
     filezilla 
     flameshot

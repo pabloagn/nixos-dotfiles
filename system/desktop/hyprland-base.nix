@@ -26,8 +26,19 @@
     #mpvpaper
     swww
 
+    # Cursor
+    hyprcursor
+
     # App launcher
     rofi-wayland
+    #wofi
+    #tofi
+
+    # Lock screen
+    hyprlock
+
+    # Idle daemon
+    #hypridle
 
     # Attribute override (bug fixes)
     (waybar.overrideAttrs (oldAttrs: {
@@ -40,7 +51,12 @@
   # ------------------------------------------
   programs.hyprland.enable = true;
 
+  # We still need xserver for gdm
+  services.xserver.enable = true;
+
   # Desktop portals
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  services.xserver.displayManager.gdm.enable = true;
+
 }

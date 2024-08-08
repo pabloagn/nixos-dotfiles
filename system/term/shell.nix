@@ -8,7 +8,11 @@
   # Requirements
   # ------------------------------------------
   environment.systemPackages = with pkgs; [
+    # Main shell
     zsh
+    
+    # Fast prompt
+    starship
   ];
 
   # Options

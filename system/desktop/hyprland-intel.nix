@@ -19,7 +19,7 @@
   # Options
   # ------------------------------------------
   programs.hyprland = {
-    nvidiaPatches = true;
+    #nvidiaPatches = true;
     xwayland.enable = true;
     };
 
