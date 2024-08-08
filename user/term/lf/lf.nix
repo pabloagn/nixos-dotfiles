@@ -1,28 +1,30 @@
 # ------------------------------------------
-# user/term/emulators.nix module
+# user/term/lf/lf.nix module
 # ------------------------------------------
 
 { config, pkgs, ... }:
 
 {
-
-# Configuration definition
-{
-  # Module imports
   # ------------------------------------------
-  imports = [
-    ./lf/lf.nix
-    ./wezterm/wezterm.nix
-    ./kitty/kitty.nix
-    ];
-
   # Packages
   # ------------------------------------------
   home.packages = with pkgs; [
+    wezterm
   ];
 
   # ------------------------------------------
   # Program Options
   # ------------------------------------------
+  programs.lf = {
+    enable = true;
+    extraConfig = ''
+    builtins.readFile ./lfrc;
+    builtins.readFile ./colors;
+    '';
+  };
 
+  xdg.configFile."lf/icons" = {
+    enable = config.programs.lf.enable;
+		  source = ./icons;
+	 };
 }

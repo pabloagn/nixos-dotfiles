@@ -20,7 +20,6 @@
     git
     cowsay
     ipfetch
-    lf
     eza
     disfetch
     onefetch

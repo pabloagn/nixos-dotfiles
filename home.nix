@@ -49,7 +49,6 @@ in
 
     # Term
     ./user/term/emulators.nix
-    ./user/term/lf.nix
 
     # Utils
     ./user/utils/others.nix

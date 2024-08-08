@@ -1,28 +1,25 @@
 # ------------------------------------------
-# user/term/emulators.nix module
+# user/term/kitty/kitty.nix module
 # ------------------------------------------
 
 { config, pkgs, ... }:
 
 {
-
-# Configuration definition
-{
-  # Module imports
   # ------------------------------------------
-  imports = [
-    ./lf/lf.nix
-    ./wezterm/wezterm.nix
-    ./kitty/kitty.nix
-    ];
-
   # Packages
   # ------------------------------------------
   home.packages = with pkgs; [
+    kitty
   ];
 
   # ------------------------------------------
   # Program Options
   # ------------------------------------------
+  programs.wezterm = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    extraConfig = builtins.readFile ./wezterm.lua;
+  };
 
 }
