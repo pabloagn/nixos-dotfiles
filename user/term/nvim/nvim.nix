@@ -9,7 +9,6 @@
   # Packages
   # ------------------------------------------
   home.packages = with pkgs; [
-    #neovim
   ];
 
   # ------------------------------------------
@@ -60,7 +59,7 @@
 
       {
         plugin = catppuccin-nvim;
-        config = "colorscheme catppuccin-mocha";
+        config = toLuaFile ./plugin/catppuccin.lua;
       }
 
       neodev-nvim

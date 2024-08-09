@@ -82,9 +82,11 @@
       gcloud.symbol = " ";
       git_branch.symbol = " ";
       golang.symbol = " ";
+      haskell.symbol = " ";
       hg_branch.symbol = " ";
       java.symbol = " ";
       julia.symbol = " ";
+      lua.symbol = " ";
       memory_usage.symbol = "󰍛 ";
       nim.symbol = "󰆥 ";
       nodejs.symbol = " ";
@@ -98,6 +100,7 @@
       shlvl.symbol = "";
       swift.symbol = "󰛥 ";
       terraform.symbol = "󱁢";
+      #vim.symbol = " ";
     };
   };
 }

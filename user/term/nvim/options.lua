@@ -1,18 +1,17 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 vim.o.clipboard = 'unnamedplus'
-
+vim.o.pumheight = 10
 vim.o.number = true
--- vim.o.relativenumber = true
-
+vim.o.relativenumber = true
 vim.o.signcolumn = 'yes'
-
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-
+vim.o.tabstop = 2
+vim.o.smarttab = true
+vim.o.shiftwidth = 2
+vim.o.smartindent = true
+vim.o.autoindent = true
 vim.o.updatetime = 300
-
+vim.o.encoding = 'utf-8'
+vim.o.fileencoding = 'utf-8'
 vim.o.termguicolors = true
-
 vim.o.mouse = 'a'
