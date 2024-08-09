@@ -9,6 +9,6 @@
   # ------------------------------------------
   environment.systemPackages = with pkgs; [
     vim
-    neovim
+    #neovim
   ];
 }

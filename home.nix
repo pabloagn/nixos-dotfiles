@@ -1,7 +1,6 @@
 # ------------------------------------------
 # Beginning of Home Configuration
 # ------------------------------------------
-
 { config, pkgs, ... }:
  
 # Variable definition
@@ -110,33 +109,6 @@ in
       }
     '';
   };
-
-
-
-
-
-
-
-
-
-
-
-#  programs.direnv.enable = true;
-#  programs.direnv.enableZshIntegration = true;
-#  programs.direnv.nix-direnv.enable = true;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   # bash
   # ------------------------------------------
