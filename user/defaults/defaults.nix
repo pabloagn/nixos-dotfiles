@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  # Packages
+  # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
   ];

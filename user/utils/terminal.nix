@@ -5,6 +5,15 @@
 { config, pkgs, ... }:
 
 {
+  # ------------------------------------------
+  # Module imports
+  # ------------------------------------------
+  imports = [
+    ./btop/btop.nix
+    ./bat/bat.nix
+    ];
+
+  # ------------------------------------------
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
@@ -15,7 +24,8 @@
     wl-clipboard
     unzip
     bc
-    btop
+    fzf
+    zoxide
     bottom
     git
     cowsay
@@ -32,5 +42,28 @@
     pandoc
     hwinfo
     pciutils
+    entr
   ];
+
+  # ------------------------------------------
+  # Program Options
+  # ------------------------------------------
+
+  # bat [a better cat alternative]
+  # ------------------------------------------
+  programs.bat = {
+    enable = true;
+  };
+
+  # zoxide [a better cd alternative]
+  # ------------------------------------------
+  programs.zoxide = {
+    enable = true;
+  };
+
+  # fzf [FuzzyFinder]
+  # ------------------------------------------
+  programs.fzf = {
+    enable = true;
+  };
 }

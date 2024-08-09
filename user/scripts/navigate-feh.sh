@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Change the input field separator to avoid problems with spaces.
 IFS='

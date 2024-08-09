@@ -1,6 +1,12 @@
+# ------------------------------------------
+# user/defaults/defaults.nix module
+# ------------------------------------------
+
 { config, pkgs, ... }:
 
 {
+  # Session Variables
+  # ------------------------------------------
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";

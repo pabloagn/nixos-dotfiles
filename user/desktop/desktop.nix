@@ -6,13 +6,15 @@
 
 # Configuration definition
 {
+  # ------------------------------------------
   # Module imports
   # ------------------------------------------
   imports = [
     ./waybar/waybar.nix
-#    ./hypr/hyprland.nix
+    #./hypr/hyprland.nix
     ];
 
+  # ------------------------------------------
   # Packages
   # ------------------------------------------
   home.packages = with pkgs; [

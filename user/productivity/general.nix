@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 
 {
+  # ------------------------------------------
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
@@ -18,6 +19,7 @@
     protonvpn-gui
     texmaker
     virtualbox
+    krusader
   ];
 }
 

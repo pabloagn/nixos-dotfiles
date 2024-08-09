@@ -1,5 +1,5 @@
 # ------------------------------------------
-# configuration.nix | system configuration file
+# /configuration.nix
 # ------------------------------------------
 
 { config, pkgs, ... }:
