@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Firefox UK
+Comment=Launch Firefox with United Kingdom profile
+Exec=/usr/bin/firefox -P "United Kingdom" %u
+Icon=/home/pabloagn/.dotfiles/user/scripts/Firefox-Media.png
+Terminal=false
+Categories=Network;WebBrowser;

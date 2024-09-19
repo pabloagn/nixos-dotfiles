@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Firefox Solenoid Labs
+Comment=Launch Firefox with Solenoid Labs profile
+Exec=/usr/bin/firefox -P "Solenoid Labs Pablo" %u
+Icon=/home/pabloagn/dotfiles/user/scripts/Firefox_SolenoidLabs.png
+Terminal=false
+Categories=Network;WebBrowser;
