@@ -79,6 +79,7 @@
   acpi
   bottom
   v4l-utils
+  upower
 
   # Multiplexing
   # ------------------------------------------

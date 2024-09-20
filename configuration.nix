@@ -41,6 +41,9 @@
     #./system/desktop/bspwm.nix
     #./system/desktop/plasma.nix
 
+    # systemd services
+    ./system/boot/services.nix
+
     # Secrets service
     #./system/sops/sops.nix
 

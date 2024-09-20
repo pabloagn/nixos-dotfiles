@@ -21,6 +21,7 @@
   # ------------------------------------------
   home.packages = with pkgs; [
     rstudio
-    vscodium
+    vscode
+    # vscodium
   ];
 }

@@ -18,7 +18,7 @@
     (makeDesktopItem {
       name = "firefox-personal";
       desktopName = "Firefox Personal";
-      genericName = "Web Browser";
+      genericName = "Profile";
       exec = "${pkgs.firefox}/bin/firefox -P Personal %u";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Firefox_Personal.png";
       comment = "Launch Firefox with Personal profile";
@@ -30,7 +30,7 @@
     (makeDesktopItem {
       name = "firefox-media";
       desktopName = "Firefox Media";
-      genericName = "Web Browser";
+      genericName = "Profile";
       exec = "${pkgs.firefox}/bin/firefox -P Media %u";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Firefox_Media.png";
       comment = "Launch Firefox with Media profile";
@@ -42,7 +42,7 @@
     (makeDesktopItem {
       name = "firefox-solenoidlabs";
       desktopName = "Firefox Solenoid Labs";
-      genericName = "Web Browser";
+      genericName = "Profile";
       exec = "${pkgs.firefox}/bin/firefox -P SolenoidLabsPablo %u";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Firefox_SolenoidLabs.png";
       comment = "Launch Firefox with Solenoid Labs profile";
@@ -54,7 +54,7 @@
     (makeDesktopItem {
       name = "firefox-uk";
       desktopName = "Firefox UK";
-      genericName = "Web Browser";
+      genericName = "Profile";
       exec = "${pkgs.firefox}/bin/firefox -P UnitedKingdom %u";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Firefox_Personal.png";
       comment = "Launch Firefox with UK profile";
@@ -66,7 +66,7 @@
     (makeDesktopItem {
       name = "firefox-academic";
       desktopName = "Firefox Academic";
-      genericName = "Web Browser";
+      genericName = "Profile";
       exec = "${pkgs.firefox}/bin/firefox -P Academic %u";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Firefox_Personal.png";
       comment = "Launch Firefox with Academic profile";
@@ -78,7 +78,7 @@
     (makeDesktopItem {
       name = "firefox-bsogood";
       desktopName = "Firefox Bsogood";
-      genericName = "Web Browser";
+      genericName = "Profile";
       exec = "${pkgs.firefox}/bin/firefox -P Bsogood %u";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Firefox_Personal.png";
       comment = "Launch Firefox with Bsogood profile";
@@ -90,7 +90,7 @@
     (makeDesktopItem {
       name = "firefox-private";
       desktopName = "Firefox Private";
-      genericName = "Web Browser";
+      genericName = "Profile";
       exec = "${pkgs.firefox}/bin/firefox -P Private %u";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Firefox_Personal.png";
       comment = "Launch Firefox with custom Private profile";
@@ -104,7 +104,7 @@
     (makeDesktopItem {
       name = "firefox-media-youtube";
       desktopName = "YouTube";
-      genericName = "Web Browser";
+      genericName = "Website";
       exec = "${pkgs.firefox}/bin/firefox -P Media %u https://youtube.com";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Firefox_Media.png";
       comment = "Launch YouTube under the Firefox Media Profile. Furthermore, it will by default be opened in the YouTube container.";
@@ -116,10 +116,22 @@
     (makeDesktopItem {
       name = "firefox-peronal-linear";
       desktopName = "Linear";
-      genericName = "Web Browser";
+      genericName = "Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://linear.app/";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Linear.png";
       comment = "Launch Linear under the Firefox Personal Profile. Furthermore, it will by default be opened in the Productivity container.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Personal - Akiflow
+    (makeDesktopItem {
+      name = "firefox-peronal-akiflow";
+      desktopName = "Akiflow";
+      genericName = "Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://web.akiflow.com";
+      icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Linear.png";
+      comment = "Launch Akiflow under the Firefox Personal Profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })
@@ -130,7 +142,7 @@
     (makeDesktopItem {
       name = "firefox-peronal-google-search";
       desktopName = "Google Search";
-      genericName = "Web Browser";
+      genericName = "Website";
       exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://www.google.com/search";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Google.png";
       comment = "Launch Google Search under the Firefox Personal Profile.";
@@ -142,7 +154,7 @@
     (makeDesktopItem {
       name = "firefox-peronal-google-images";
       desktopName = "Google Images";
-      genericName = "Web Browser";
+      genericName = "Website";
       exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://www.google.com/advanced_image_search";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Google.png";
       comment = "Launch Google Advanced Image Search under the Firefox Personal Profile.";
@@ -154,10 +166,46 @@
     (makeDesktopItem {
       name = "firefox-personal-linkedin";
       desktopName = "LinkedIn";
-      genericName = "Web Browser";
+      genericName = "Website";
       exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://linkedin.com";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/LinkedIn.png";
       comment = "Launch LinkedIn under the Firefox Personal Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Personal - GitHub
+    (makeDesktopItem {
+      name = "firefox-personal-github";
+      desktopName = "GitHub";
+      genericName = "Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://github.com";
+      icon = "/home/pabloagn/.dotfiles/user/desktop-apps/GitHub.png";
+      comment = "Launch GitHub under the Firefox Personal Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Personal - NixOS Packages
+    (makeDesktopItem {
+      name = "firefox-personal-nixos-packages";
+      desktopName = "NixOS Packages";
+      genericName = "Website";
+      exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://search.nixos.org/packages";
+      icon = "/home/pabloagn/.dotfiles/user/desktop-apps/GitHub.png";
+      comment = "Launch NixOS Package directory under the Firefox Personal Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Personal - Unsplash
+    (makeDesktopItem {
+      name = "firefox-personal-unsplash";
+      desktopName = "Unsplash";
+      genericName = "Website";
+      exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://unsplash.com";
+      icon = "/home/pabloagn/.dotfiles/user/desktop-apps/GitHub.png";
+      comment = "Launch Unsplash under the Firefox Personal Profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })
@@ -166,7 +214,7 @@
     (makeDesktopItem {
       name = "firefox-personal-chatgpt";
       desktopName = "ChatGPT";
-      genericName = "Web Browser";
+      genericName = "Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://chatgpt.com";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Claude.png";
       comment = "Launch ChatGPT under the Firefox Personal Profile.";
@@ -178,7 +226,7 @@
     (makeDesktopItem {
       name = "firefox-personal-claude";
       desktopName = "ClaudeAI";
-      genericName = "Web Browser";
+      genericName = "Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Personal %u https://claude.ai";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Claude.png";
       comment = "Launch ClaudeAI under the Firefox Personal Profile.";
@@ -190,7 +238,7 @@
     (makeDesktopItem {
       name = "firefox-solenoid-labs-pablo-upwork";
       desktopName = "Upwork";
-      genericName = "Web Browser";
+      genericName = "Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Solenoid Labs Pablo %u https://upwork.com";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Firefox_Personal.png";
       comment = "Launch Upwork under the Firefox Solenoid Labs Pablo Profile.";
@@ -202,7 +250,7 @@
     (makeDesktopItem {
       name = "firefox-academic-blackboard";
       desktopName = "Blackboard";
-      genericName = "Web Browser";
+      genericName = "Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Academic %u https://www.ole.bris.ac.uk/ultra/institution-page";
       icon = "/home/pabloagn/.dotfiles/user/desktop-apps/Blackboard.png";
       comment = "Launch Blackboard home page under the Firefox Academic Profile.";
