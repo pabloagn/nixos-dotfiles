@@ -27,7 +27,13 @@
     ulauncher
     vlc
     yt-dlp
-    
+    # A tool for converting video formats & ripping DVDs
+    handbrake
+    # A professional review software for VFX, animation, and film production
+    # Used to view EXR sequences
+    # djv
+    blender
+
     # Plex
     # Plex server
     plex

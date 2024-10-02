@@ -16,6 +16,7 @@
     pass
     gnupg
     # keychain
+    gnome.gnome-keyring
     sops
   ];
   # ------------------------------------------

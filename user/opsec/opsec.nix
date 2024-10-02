@@ -58,5 +58,10 @@
   nikto
   sqlmap
 
+  # Resources
+  # ------------------------------------------
+  # A collection of wordlists useful for security testing
+  wordlists
+
   ];
 }

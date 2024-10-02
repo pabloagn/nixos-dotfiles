@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=navigate-feh
-Exec=/home/pabloagnck/.dotfiles/user/scripts/feh-navigate.sh %f
-Type=Application
-MimeType=image/jpeg;image/png;image/svg+xml;image/gif;image/bmp;image/tiff;image/webp;
-Terminal=false

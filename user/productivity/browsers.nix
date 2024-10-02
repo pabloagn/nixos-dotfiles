@@ -11,7 +11,7 @@
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
-    brave
+    # brave
     firefox-devedition
     w3m
     # Open-source version of Firefox

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Firefox Personal
-Comment=Launch Firefox with Personal profile
-Exec=/usr/bin/firefox -P "Personal" %u
-Icon=/home/pabloagnck/dotfiles/user/scripts/Firefox_Personal.png
-Terminal=false
-Categories=Network;WebBrowser;

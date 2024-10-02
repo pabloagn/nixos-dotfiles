@@ -88,7 +88,7 @@
 
    "disk": {
         "interval": 15,
-        "format": "{percentage_used}% 󰋊",
+        "format": "{percentage_used}%  ",
     },
 
     "backlight": {
@@ -104,7 +104,6 @@
     },
 
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "interval":1,
         "format-wifi": "{bandwidthTotalBytes:>3}  ", //({essid} {signalStrength}%)
         "format-ethernet": "{ipaddr}/{cidr} ",
@@ -116,7 +115,6 @@
     },
 
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}", //{format_source}",
         "format-bluetooth": "{volume}% {icon} 󰂯", //{format_source}",
         "format-bluetooth-muted": "󰖁 {icon} 󰂯", //{format_source}",

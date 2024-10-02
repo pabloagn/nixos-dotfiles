@@ -38,8 +38,8 @@
   # ------------------------------------------
   signal-desktop
   whatsapp-for-linux
-  # teams
   teams-for-linux
+  telegram-desktop
 
   # Document Processing and Viewing
   # ------------------------------------------

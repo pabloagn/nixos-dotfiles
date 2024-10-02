@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Firefox Media
-Comment=Launch Firefox with Media profile
-Exec=/usr/bin/firefox -P "Media" %u
-Icon=/home/pabloagn/.dotfiles/user/scripts/Firefox-Media.png
-Terminal=false
-Categories=Network;WebBrowser;

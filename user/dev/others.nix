@@ -12,5 +12,8 @@
   # ------------------------------------------
   home.packages = with pkgs; [
     docker
+    postman
+    ollama
+    dbeaver-bin
   ];
 }
