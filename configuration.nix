@@ -37,7 +37,7 @@
     # Desktop & Windows Managers
     ./system/desktop/hyprland-amd.nix
     #./system/desktop/hyprland-intel.nix
-    ./system/desktop/desktop-applications.nix
+    #./system/desktop/desktop-applications.nix
     #./system/desktop/bspwm.nix
     #./system/desktop/plasma.nix
 

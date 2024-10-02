@@ -100,20 +100,24 @@ in
 
       # NixOS & dots
       # ------------------------------------------
-      DOTFILES      = dotfiles;
-      DOTSCRIPTS    = "${dotfiles}/scripts";
-      DOTSYS        = "${dotfiles}/system";
-      DOTUSER       = "${dotfiles}/user";
+      DOTFILES              = dotfiles;
+      DOTSCRIPTS            = "${dotfiles}/scripts";
+      DOTSYS                = "${dotfiles}/system";
+      DOTUSER               = "${dotfiles}/user";
 
       # Home & Config
-      DOTHOME       = "${dotfiles}/home.nix";
-      DOTCONFIG     = "${dotfiles}/configuration.nix";
+      DOTHOME               = "${dotfiles}/home.nix";
+      DOTCONFIG             = "${dotfiles}/configuration.nix";
 
       # Shell aliases (used for zsh, bash & any other shell installed)
-      DOTALIASES    = "${dotfiles}/user/term/aliases.nix";
+      DOTALIASES            = "${dotfiles}/user/term/aliases.nix";
 
       # Environment variables for user
-      DOTVARS       = "${dotfiles}/user/defaults/environment-variables.nix";
+      DOTVARS               = "${dotfiles}/user/defaults/environment-variables.nix";
+
+      # Special variables
+      # ------------------------------------------
+      DESKTOP_APPS_LOGOS    = "${dotfiles}/user/desktop-apps/logos";
 
       # CACHE = "${cfg.cacheDir}";
       # CONFIG = "${cfg.configDir}";

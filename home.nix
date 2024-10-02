@@ -19,7 +19,7 @@
     # Defaults (includes MIME types, default apps & environment variables)
     ./user/defaults/defaults.nix
 
-    # Desktop Applicaitons
+    # Desktop Applications
     ./user/defaults/desktop-applications.nix
 
     # Authentication & secrets

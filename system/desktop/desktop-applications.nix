@@ -347,6 +347,7 @@
   # ------------------------------------------
   # Notes
   # ------------------------------------------
+  # Latest Update: This was deprecated in favor of user-defined desktop applications. See /user/defaults/desktop-applications.nix.
   # If using rofi, this module is always required.
   # Rofi will use available desktop applications under the drun execution mode.
 }
