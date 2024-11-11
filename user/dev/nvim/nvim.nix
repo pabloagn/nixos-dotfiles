@@ -26,6 +26,15 @@
   {
     # Enable
     enable = true;
+    defaultEditor = true;
+
+    # Disable wrapper application (in favor of my own version)
+    # Note:
+    #   Does not work, but will keep here as a reminder.
+    # wrapRc = false;
+
+    # Language support
+    withPython3 = true;
 
     # Aliases
     viAlias = true;

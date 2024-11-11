@@ -24,6 +24,9 @@
 
     # Lightweight browser for special windows
     qutebrowser
+
+    # Backup browsers
+    brave
   ];
 }
 

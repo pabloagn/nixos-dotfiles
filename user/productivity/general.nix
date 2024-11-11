@@ -34,6 +34,13 @@
   # ------------------------------------------
   qalculate-gtk
 
+
+  # Calendars
+  # ------------------------------------------
+  kdePackages.korganizer
+  evolution
+  calcurse
+
   # Messaging & Socials
   # ------------------------------------------
   signal-desktop
@@ -61,6 +68,11 @@
   #darling
   virtualbox
   #wine
+
+  # Remote Desktops
+  # ------------------------------------------
+  freerdp3
+  remmina
 
   # VPN
   # ------------------------------------------

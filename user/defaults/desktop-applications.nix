@@ -21,13 +21,16 @@ in
     # ---------------------------------------------------------
 
     # NeoVim
+    # Note:
+    #   There's an actual hyprland shortcut for this, since there is this undeletable wrapper that confuses me on Rofi.
     (makeDesktopItem {
-      name = "nvim";
-      desktopName = "NeoVim";
+      name = "nvim-instance";
+      desktopName = "Neovim";
       genericName = "App - Text Editor";
-      exec = "kitty nvim %F";
+      # exec = "kitty nvim %F";
+      exec = "kitty --directory /home/pabloagn nvim %F";
       icon = "${iconPath}/NeoVim_Logo.png";
-      comment = "Edit text files in a terminal using NeoVim.";
+      comment = "Edit text files in a terminal using NeoVim, detached from any terminal instance.";
       categories = [ "Utility" "TextEditor" ];
       terminal = false;
       type = "Application";
@@ -121,15 +124,30 @@ in
       mimeTypes = [ "text/html" "text/xml" ];
     })
 
+    # Firefox - Incognito
+    (makeDesktopItem {
+      name = "firefox-incognito";
+      desktopName = "Firefox Incognito";
+      genericName = "Mode";
+      exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} %u --private-window";
+      icon = "${iconPath}/Firefox_General_Logo.png";
+      comment = "Launch Firefox with Incognito mode.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
     # ---------------------------------------------------------
     # Firefox Websites
     # ---------------------------------------------------------
     
+    # Firefox Media
+    # ---------------------------------------------------------
+
     # Firefox Media - YouTube
     (makeDesktopItem {
       name = "firefox-media-youtube";
-      desktopName = "Media - YouTube";
-      genericName = "Web App";
+      desktopName = "YouTube";
+      genericName = "Media - Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Media ${firefoxNewWindow} https://youtube.com";
       icon = "${iconPath}/YouTube_Logo.png";
       comment = "Launch YouTube Web App under the Firefox Media Profile. Furthermore, it will by default be opened in the YouTube container.";
@@ -137,11 +155,14 @@ in
       mimeTypes = [ "text/html" "text/xml" ];
     })
 
+    # Firefox Personal
+    # ---------------------------------------------------------
+
     # Firefox Personal - Linear
     (makeDesktopItem {
       name = "firefox-personal-linear";
-      desktopName = "Personal - Linear";
-      genericName = "Web App";
+      desktopName = "Linear";
+      genericName = "Personal - Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://linear.app/";
       icon = "${iconPath}/Linear_Logo.png";
       comment = "Launch Linear Web App under the Firefox Personal Profile. Furthermore, it will by default be opened in the Productivity container.";
@@ -152,8 +173,8 @@ in
     # Firefox Personal - Akiflow
     (makeDesktopItem {
       name = "firefox-personal-akiflow";
-      desktopName = "Personal - Akiflow";
-      genericName = "Web App";
+      desktopName = "Akiflow";
+      genericName = "Personal - Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://web.akiflow.com";
       icon = "${iconPath}/Akiflow_Logo.png";
       comment = "Launch Akiflow Web App under the Firefox Personal Profile. Furthermore, it will by default be opened in the Productivity container.";
@@ -164,10 +185,10 @@ in
     # Firefox Personal - ProtonDrive
     (makeDesktopItem {
       name = "firefox-personal-protondrive";
-      desktopName = "Personal - ProtonDrive";
-      genericName = "Web App";
+      desktopName = "ProtonDrive";
+      genericName = "Personal - Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://drive.proton.me/";
-      icon = "${iconPath}/Proton_Logo.png";
+      icon = "${iconPath}/Protondrive_Logo.png";
       comment = "Launch ProtonDrive Web App under the Firefox Personal Profile. Furthermore, it will by default be opened in the Productivity container.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
@@ -176,11 +197,35 @@ in
     # Firefox Personal - ProtonMail
     (makeDesktopItem {
       name = "firefox-personal-protonmail";
-      desktopName = "Personal - ProtonMail";
-      genericName = "Web App";
+      desktopName = "ProtonMail";
+      genericName = "Personal - Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://mail.proton.me/";
-      icon = "${iconPath}/Proton_Logo.png";
+      icon = "${iconPath}/Protonmail_Logo.png";
       comment = "Launch ProtonMail Web App under the Firefox Personal Profile. Furthermore, it will by default be opened in the Productivity container.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Personal - Reddit
+    (makeDesktopItem {
+      name = "firefox-personal-reddit";
+      desktopName = "Reddit";
+      genericName = "Personal - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://reddit.com";
+      icon = "${iconPath}/Reddit_Logo.png";
+      comment = "Launch Reddit Web App under the Firefox Personal Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Personal - Goodreads
+    (makeDesktopItem {
+      name = "firefox-personal-goodreads";
+      desktopName = "Goodreads";
+      genericName = "Personal - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://goodreads.com";
+      icon = "${iconPath}/Goodreads_Logo.png";
+      comment = "Launch Goodreads Web App under the Firefox Personal Profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })
@@ -243,7 +288,7 @@ in
       desktopName = "LinkedIn";
       genericName = "Personal - Web App";
       exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://www.linkedin.com";
-      icon = "${iconPath}/LinkedIn.png";
+      icon = "${iconPath}/LinkedIn_Logo.png";
       comment = "Launch LinkedIn Web App under the Firefox Personal Profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
@@ -344,6 +389,9 @@ in
       mimeTypes = [ "text/html" "text/xml" ];
     })
 
+    # Firefox United Kingdom
+    # ---------------------------------------------------------
+
     # Firefox United Kingdom - Google Maps
     (makeDesktopItem {
       name = "firefox-uk-google-maps";
@@ -392,6 +440,69 @@ in
       mimeTypes = [ "text/html" "text/xml" ];
     })
 
+    # Firefox United Kingdom - IKEA
+    (makeDesktopItem {
+      name = "firefox-uk-ikea-uk";
+      desktopName = "IKEA United Kingdom";
+      genericName = "UK - Website";
+      exec = "${pkgs.firefox}/bin/firefox -P UnitedKingdom ${firefoxNewWindow} https://www.ikea.com/gb/en/";
+      icon = "${iconPath}/IKEA_Logo.png";
+      comment = "Launch IKEA UK under the Firefox United Kingdom Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox United Kingdom - Google Maps
+    (makeDesktopItem {
+      name = "firefox-uk-google-maps";
+      desktopName = "Google Maps";
+      genericName = "UK - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P UnitedKingdom ${firefoxNewWindow} https://maps.google.com";
+      icon = "${iconPath}/Google_Logo.png";
+      comment = "Launch Google Maps under the Firefox United Kingdom Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox United Kingdom - Tesco
+    (makeDesktopItem {
+      name = "firefox-uk-tesco";
+      desktopName = "Tesco";
+      genericName = "UK - Website";
+      exec = "${pkgs.firefox}/bin/firefox -P UnitedKingdom ${firefoxNewWindow} https://www.tesco.com/groceries/";
+      icon = "${iconPath}/Tesco_Logo.png";
+      comment = "Launch Tesco Groceries under the Firefox United Kingdom Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox United Kingdom - Sainsbury's
+    (makeDesktopItem {
+      name = "firefox-uk-sainsburys";
+      desktopName = "Sainsbury's";
+      genericName = "UK - Website";
+      exec = "${pkgs.firefox}/bin/firefox -P UnitedKingdom ${firefoxNewWindow} https://www.sainsburys.co.uk/gol-ui/groceries";
+      icon = "${iconPath}/Sainsburys_Logo.png";
+      comment = "Launch Sainsbury's Groceries under the Firefox United Kingdom Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox United Kingdom - Boots
+    (makeDesktopItem {
+      name = "firefox-uk-boots";
+      desktopName = "Boots";
+      genericName = "UK - Website";
+      exec = "${pkgs.firefox}/bin/firefox -P UnitedKingdom ${firefoxNewWindow} https://www.boots.com/";
+      icon = "${iconPath}/Boots_Logo.png";
+      comment = "Launch Boots under the Firefox United Kingdom Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Solenoid Labs
+    # ---------------------------------------------------------
+
     # Firefox Solenoid Labs Pablo - Upwork
     (makeDesktopItem {
       name = "firefox-solenoid-labs-pablo-upwork";
@@ -400,6 +511,30 @@ in
       exec = "${pkgs.firefox}/bin/firefox -P SolenoidLabsPablo ${firefoxNewWindow} https://upwork.com";
       icon = "${iconPath}/Upwork_Logo.png";
       comment = "Launch Upwork under the Firefox Solenoid Labs Pablo Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Solenoid Labs Pablo - Figma
+    (makeDesktopItem {
+      name = "firefox-solenoid-labs-pablo-figma";
+      desktopName = "Figma";
+      genericName = "Solenoid Labs - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P SolenoidLabsPablo ${firefoxNewWindow} https://figma.com";
+      icon = "${iconPath}/Figma_Logo.png";
+      comment = "Launch Figma under the Firefox Solenoid Labs Pablo Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Solenoid Labs Pablo - Google Drive
+    (makeDesktopItem {
+      name = "firefox-solenoid-labs-pablo-googledrive";
+      desktopName = "Google Drive";
+      genericName = "Solenoid Labs - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P SolenoidLabsPablo ${firefoxNewWindow} https://drive.google.com";
+      icon = "${iconPath}/GoogleDrive_Logo.png";
+      comment = "Launch Google Drive under the Firefox Solenoid Labs Pablo Profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })
