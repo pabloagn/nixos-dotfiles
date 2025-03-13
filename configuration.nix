@@ -44,6 +44,9 @@
     # systemd services
     ./system/boot/services.nix
 
+    # Virtualization services
+    ./system/virtualisation/docker.nix
+
     # Secrets service
     #./system/sops/sops.nix
 
