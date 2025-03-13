@@ -11,28 +11,29 @@
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
-    audacity
-    gimp
-    imagemagick
-    mpv
-    clementine
     audacious
-    feh
-    sxiv
-    exiv2
-    inkscape
-    obs-studio
-    playerctl
-    tidal-dl
-    ulauncher
-    vlc
-    yt-dlp
-    # A tool for converting video formats & ripping DVDs
-    handbrake
+    audacity
+    blender
+
     # A professional review software for VFX, animation, and film production
     # Used to view EXR sequences
     # djv
-    blender
+
+    # Equalizer for PipeWire
+    easyeffects
+
+    exiv2
+    feh
+    # Unofficial Figma client for Linux
+    figma-linux
+
+    # A tool for converting video formats & ripping DVDs
+    handbrake
+
+    imagemagick
+    inkscape
+    mpv
+    obs-studio
 
     # Plex
     # Plex server
@@ -41,18 +42,23 @@
     # Plex amp
     plexamp
 
-    # Torrenting
-    # Transmission
-    # CLI
-    # transmission
-    # GUI
+    playerctl
+    spotify
+    
+    # Tidal GUI running on Electron
+    tidal-hifi
+
+    # Transmission GUI
     transmission-qt
 
     # QBitorrent
     # qbittorrent
     qbittorrent-qt5
 
-    # Equalizer for PipeWire
-    easyeffects
+    sxiv
+    tidal-dl
+    ulauncher
+    vlc
+    yt-dlp
   ];
 }

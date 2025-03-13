@@ -17,5 +17,7 @@
     desktop-file-utils
     # GUI for adjusting RGB lighting on Keychron keyboards
     via
+    # Debugging
+    lsof
   ];
 }

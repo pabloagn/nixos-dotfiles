@@ -112,14 +112,14 @@ in
       mimeTypes = [ "text/html" "text/xml" ];
     })
 
-    # Firefox Profile - Private
+    # Firefox - The Human Palace
     (makeDesktopItem {
-      name = "firefox-private";
-      desktopName = "Firefox Private";
+      name = "firefox-the-human-palace";
+      desktopName = "Firefox The Human Palace";
       genericName = "Profile";
-      exec = "${pkgs.firefox}/bin/firefox -P Private ${firefoxNewWindow} %u";
-      icon = "${iconPath}/Firefox_Private_Logo.png";
-      comment = "Launch Firefox with custom Private profile.";
+      exec = "${pkgs.firefox}/bin/firefox -P TheHumanPalace ${firefoxNewWindow} %u";
+      icon = "${iconPath}/Firefox_General_Logo.png";
+      comment = "Launch Firefox with The Human Palace profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })
@@ -132,6 +132,18 @@ in
       exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} %u --private-window";
       icon = "${iconPath}/Firefox_General_Logo.png";
       comment = "Launch Firefox with Incognito mode.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Profile - Private
+    (makeDesktopItem {
+      name = "firefox-private";
+      desktopName = "Firefox Private";
+      genericName = "Profile";
+      exec = "${pkgs.firefox}/bin/firefox -P Private ${firefoxNewWindow} %u";
+      icon = "${iconPath}/Firefox_Private_Logo.png";
+      comment = "Launch Firefox with custom Private profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })
@@ -385,6 +397,18 @@ in
       exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://amazon.com.mx";
       icon = "${iconPath}/Amazon_Logo.png";
       comment = "Launch Amazon Mexico under the Firefox Personal Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Personal - Standard Notes
+    (makeDesktopItem {
+      name = "firefox-personal-standard-notes";
+      desktopName = "Standard Notes";
+      genericName = "Personal - Standard Notes";
+      exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://app.standardnotes.com/";
+      icon = "${iconPath}/Standard_Notes_Logo.png";
+      comment = "Launch Standard Notes under the Firefox Personal Profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })

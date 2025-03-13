@@ -44,6 +44,7 @@
   # Messaging & Socials
   # ------------------------------------------
   signal-desktop
+  slack
   whatsapp-for-linux
   teams-for-linux
   telegram-desktop

@@ -20,7 +20,12 @@
     julia-lts
     metals
     nodejs_20
-    python39
+    python310
+    python310Packages.pip
+    python310Packages.jupyter
+    python310Packages.notebook
+    python310Packages.ipykernel
+
     #python310
     #python311
     R
