@@ -10,6 +10,8 @@
   # Requirements
   # ------------------------------------------
   environment.systemPackages = with pkgs; [
+    # System dependencies
+    gnumake
     # Command line utilities (including killall)
     psmisc
     kitty
