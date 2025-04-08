@@ -13,7 +13,21 @@ In this repository, you will find:
 
 # Installation
 
+# Build New Generations & Switch
 
+The environment is managed throughout Nix Flakes.
+
+For system configuration:
+
+```bash
+sudo nixos-rebuild switch --flake .dotfiles
+```
+
+For home manager:
+
+```bash
+home-manager switch --flake .dotfiles
+```
 
 # Attribution
 - Pablo Aguirre

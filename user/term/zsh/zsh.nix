@@ -54,6 +54,10 @@ in
     # History
     history = {
       expireDuplicatesFirst = true;
+      ignoreDups = true;          # Ignore consecutive duplicates
+      ignoreAllDups = false;      # Don't remove older duplicates
+      size = 1000000000;          # Very large history size
+      save = 1000000000;          # Save all entries
       extended = true;
       path = "$HOME/.cache/zsh/.zsh_history";
     };

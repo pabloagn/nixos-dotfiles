@@ -94,7 +94,7 @@ vim.o.shiftwidth = 2
 vim.o.hidden = true
 
 -- Remember N lines in history
-vim.o.history = 100           
+vim.o.history = 1000           
 
 -- Faster scrolling
 vim.o.lazyredraw = true
