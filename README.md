@@ -29,6 +29,31 @@ For home manager:
 home-manager switch --flake .dotfiles
 ```
 
+# Upgrades & System Updates
+
+To update packages, follow the instructions below:
+
+## 1. Update URLs
+
+This command checks the URLs defined in the `flake.nix` (like `nixpkgs/nixos-24.05`, `nixpkgs/nixos-unstable`, `home-manager/release-24.05`) for newer commits and updates the `flake.lock` file accordingly. The flake.lock pins specific versions (commits) of your inputs, ensuring reproducibility.
+
+```bash
+nix flake update
+```
+
+## 2. Apply Update
+
+```bash
+sudo nixos-rebuild switch --flake .dotfiles
+```
+
+For home manager:
+
+```bash
+home-manager switch --flake .dotfiles
+```
+
+
 # Attribution
 - Pablo Aguirre
 

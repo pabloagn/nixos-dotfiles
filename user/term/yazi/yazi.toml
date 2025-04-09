@@ -1,41 +1,42 @@
 # ---------------------------------------------------------
-# Route:............system/interface/fonts.nix
-# Type:.............Module
+# Route:............/user/term/yazi/yazi.toml
+# Type:.............Yazi Main Configuration
 # Created by:.......Pablo Aguirre
 # ---------------------------------------------------------
+
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [manager]
 ratio          = [ 1, 4, 3 ]
-sort_by        = "alphabetical"
+sort_by        = "alphabetical" # Options: alphabetical, natural, mtime, ctime, atime, size, none
 sort_sensitive = false
 sort_reverse 	 = false
 sort_dir_first = true
-sort_translit  = false
-linemode       = "none"
-show_hidden    = false
+sort_translit  = false         # Use transliteration for sorting (e.g., treat 'é' like 'e')
+linemode       = "none"        # Options: "none", "size", "permissions", "collapse" (icons only)
+show_hidden    = false         # Set to true to always show hidden files by default
 show_symlink   = true
-scrolloff      = 5
+scrolloff      = 5             # Keep N lines visible above/below cursor when scrolling
 mouse_events   = [ "click", "scroll" ]
 
 [preview]
 tab_size        = 2
 max_width       = 600
 max_height      = 900
-cache_dir       = ""
-image_filter    = "triangle"
-image_quality   = 75
-sixel_fraction  = 15
-ueberzug_scale  = 1
-ueberzug_offset = [ 0, 0, 0, 0 ]
+cache_dir       = ""             # Leave empty to use default cache location
+image_filter    = "triangle"     # Affects image scaling quality. Options: nearest, triangle, catmull-rom, gaussian, lanczos3
+image_quality   = 75             # For formats supporting quality settings (e.g., JPEG)
+sixel_fraction  = 15             # For sixel image rendering
+ueberzug_scale  = 1              # Adjust scale factor for ueberzug image previews if needed
+ueberzug_offset = [ 0, 0, 0, 0 ] # [x, y, width, height] offset for ueberzug
 
 [opener]
 edit = [
-	{ run = '${EDITOR:=vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-	{ run = 'code %*',    orphan = true, desc = "code",           for = "windows" },
-	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
+	{ run = '${EDITOR:=nvim} "$@"', desc = "${EDITOR:-nvim}", block = true, for = "unix" }, # Use nvim as default if $EDITOR is unset
+	{ run = 'code %*',            orphan = true, desc = "code",           for = "windows" },
+	{ run = 'code -w %*',         block = true,  desc = "code (block)",   for = "windows" },
 ]
 open = [
 	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
@@ -46,6 +47,8 @@ reveal = [
 	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
 	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
 	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
+	# Consider adding a specific file manager if xdg-open isn't desired, e.g.:
+	# { run = 'thunar "$(dirname "$1")"',           desc = "Reveal (Thunar)", for = "linux" },
 	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
@@ -60,20 +63,24 @@ play = [
 
 [open]
 rules = [
+	# -- You might want to customize opener precedence here --
+	# -- For example, make archives open with 'edit' first if desired --
 	# Folder
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image
-	{ mime = "image/*", use = [ "open", "reveal" ] },
+	{ mime = "image/*", use = [ "open", "reveal" ] }, # Could add 'edit' here if you edit images often
 	# Media
-	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
+	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] }, # Could add 'edit' if you edit metadata
 	# Archive
 	{ mime = "application/{,g}zip", use = [ "extract", "reveal" ] },
 	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", use = [ "extract", "reveal" ] },
-	# JSON
+	# JSON / JS
 	{ mime = "application/{json,x-ndjson}", use = [ "edit", "reveal" ] },
 	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
+	# PDF (often good to have 'edit' for metadata or simple text edits)
+	{ mime = "application/pdf", use = [ "open", "edit", "reveal" ] },
 	# Empty file
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
 	# Fallback
@@ -81,23 +88,23 @@ rules = [
 ]
 
 [tasks]
-micro_workers    = 10
-macro_workers    = 25
-bizarre_retry    = 5
-image_alloc      = 536870912  # 512MB
-image_bound      = [ 0, 0 ]
-suppress_preload = false
+micro_workers    = 10 # For UI-related tasks
+macro_workers    = 25 # For background tasks like previews
+bizarre_retry    = 5  # Retries for potentially recoverable errors
+image_alloc      = 536870912  # 512MB - Max memory for image decoding pool
+image_bound      = [ 0, 0 ]   # Max dimensions for image previews (0 = unbounded)
+suppress_preload = false      # Set to true to disable preloading previews for performance
 
 [plugin]
-
+# -- Fetchers run first to gather metadata (e.g., mime type) --
 fetchers = [
-	# Mimetype
 	{ id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
 ]
+# -- Preloaders prepare data for previewers (e.g., decode images) --
 preloaders = [
 	# Image
-	{ mime = "image/{avif,heic,jxl,svg+xml}", run = "magick" },
-	{ mime = "image/*", run = "image" },
+	{ mime = "image/{avif,heic,jxl,svg+xml}", run = "magick" }, # Use ImageMagick for these
+	{ mime = "image/*", run = "image" },                       # Use internal Yazi image decoder
 	# Video
 	{ mime = "video/*", run = "video" },
 	# PDF
@@ -106,9 +113,10 @@ preloaders = [
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/vnd.ms-opentype", run = "font" },
 ]
+# -- Previewers display the content --
 previewers = [
-	{ name = "*/", run = "folder", sync = true },
-	# Code
+	{ name = "*/", run = "folder", sync = true }, # Folder preview runs synchronously
+	# Code (using internal syntect)
 	{ mime = "text/*", run = "code" },
 	{ mime = "*/{xml,javascript,x-wine-extension-ini}", run = "code" },
 	# JSON
@@ -126,26 +134,28 @@ previewers = [
 	# Font
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/vnd.ms-opentype", run = "font" },
-	# Fallback
+	# Fallback (shows basic file info)
 	{ name = "*", run = "file" },
 ]
 
 [input]
+# -- Input prompts configuration --
 cursor_blink = false
 
 # cd
 cd_title  = "Change directory:"
 cd_origin = "top-center"
-cd_offset = [ 0, 2, 50, 3 ]
+cd_offset = [ 0, 2, 50, 3 ] # [x, y, width, height] relative to origin
 
 # create
-create_title  = "Create:"
+# -- FIX: Changed from string to array[2] --
+create_title  = [ "Create:", "Create:" ]
 create_origin = "top-center"
 create_offset = [ 0, 2, 50, 3 ]
 
 # rename
 rename_title  = "Rename:"
-rename_origin = "hovered"
+rename_origin = "hovered"   # Position relative to the hovered file
 rename_offset = [ 0, 1, 50, 3 ]
 
 # trash
@@ -164,17 +174,17 @@ filter_origin = "top-center"
 filter_offset = [ 0, 2, 50, 3 ]
 
 # find
-find_title  = [ "Find next:", "Find previous:" ]
+find_title  = [ "Find next:", "Find previous:" ] # Array used for next/previous context
 find_origin = "top-center"
 find_offset = [ 0, 2, 50, 3 ]
 
 # search
-search_title  = "Search via {n}:"
+search_title  = "Search via {n}:" # {n} is replaced by search engine name
 search_origin = "top-center"
 search_offset = [ 0, 2, 50, 3 ]
 
 # shell
-shell_title  = [ "Shell:", "Shell (block):" ]
+shell_title  = [ "Shell:", "Shell (block):" ] # Array used for normal/blocking context
 shell_origin = "top-center"
 shell_offset = [ 0, 2, 50, 3 ]
 
@@ -189,15 +199,19 @@ quit_origin = "top-center"
 quit_offset = [ 0, 2, 50, 3 ]
 
 [select]
+# -- Configuration for the 'open with' selection menu --
 open_title  = "Open with:"
 open_origin = "hovered"
-open_offset = [ 0, 1, 50, 7 ]
+open_offset = [ 0, 1, 50, 7 ] # Wider height for selection list
 
 [which]
-sort_by      	 = "none"
+# -- Configuration for command selection (e.g., multiple 'edit' options) --
+sort_by      	 = "none" # Keep order defined in [opener]
 sort_sensitive = false
 sort_reverse 	 = false
 sort_translit  = false
 
 [log]
+# -- Yazi internal logging (for debugging) --
 enabled = false
+# log_file = # Leave empty for default location if enabled

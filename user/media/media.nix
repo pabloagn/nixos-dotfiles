@@ -53,7 +53,6 @@
 
     # QBitorrent
     # qbittorrent
-    qbittorrent-qt5
 
     sxiv
     tidal-dl

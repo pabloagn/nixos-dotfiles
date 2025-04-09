@@ -124,7 +124,7 @@ in
       mimeTypes = [ "text/html" "text/xml" ];
     })
 
-    # Firefox - Phantom
+    # Firefox - GenAI
     (makeDesktopItem {
       name = "firefox-genai";
       desktopName = "Firefox GenAI Dev";
@@ -377,30 +377,6 @@ in
       mimeTypes = [ "text/html" "text/xml" ];
     })
 
-    # Firefox Personal - ChatGPT
-    (makeDesktopItem {
-      name = "firefox-personal-chatgpt";
-      desktopName = "ChatGPT";
-      genericName = "Personal - Web App";
-      exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://chatgpt.com";
-      icon = "${iconPath}/ChatGPT_Logo.png";
-      comment = "Launch ChatGPT under the Firefox Personal Profile.";
-      categories = [ "Network" "WebBrowser" ];
-      mimeTypes = [ "text/html" "text/xml" ];
-    })
-
-    # Firefox Personal - ClaudeAI
-    (makeDesktopItem {
-      name = "firefox-personal-claude";
-      desktopName = "ClaudeAI";
-      genericName = "Personal - Web App";
-      exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://claude.ai";
-      icon = "${iconPath}/Claude_Logo.png";
-      comment = "Launch ClaudeAI under the Firefox Personal Profile.";
-      categories = [ "Network" "WebBrowser" ];
-      mimeTypes = [ "text/html" "text/xml" ];
-    })
-
     # Firefox Personal - Amazon Mexico
     (makeDesktopItem {
       name = "firefox-personal-amazon-mexico";
@@ -421,6 +397,58 @@ in
       exec = "${pkgs.firefox}/bin/firefox -P Personal ${firefoxNewWindow} https://app.standardnotes.com/";
       icon = "${iconPath}/Standard_Notes_Logo.png";
       comment = "Launch Standard Notes under the Firefox Personal Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+
+    # Firefox GenAI
+    # ---------------------------------------------------------
+
+    # Firefox AI - ClaudeAI
+    (makeDesktopItem {
+      name = "firefox-genai-claude";
+      desktopName = "ClaudeAI";
+      genericName = "GenAI - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P GenAI ${firefoxNewWindow} https://claude.ai";
+      icon = "${iconPath}/Claude_Logo.png";
+      comment = "Launch ClaudeAI under the Firefox GenAI Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox AI - GeminiAI
+    (makeDesktopItem {
+      name = "firefox-genai-gemini";
+      desktopName = "GeminiAI";
+      genericName = "GenAI - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P GenAI ${firefoxNewWindow} https://aistudio.google.com/";
+      icon = "${iconPath}/GoogleGemini_Logo.png";
+      comment = "Launch GeminiAI under the Firefox GenAI Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox GenAI - ChatGPT
+    (makeDesktopItem {
+      name = "firefox-genai-chatgpt";
+      desktopName = "ChatGPT";
+      genericName = "GenAI - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P GenAI ${firefoxNewWindow} https://chatgpt.com";
+      icon = "${iconPath}/ChatGPT_Logo.png";
+      comment = "Launch ChatGPT under the Firefox GenAI Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox GenAI - PerplexityAI
+    (makeDesktopItem {
+      name = "firefox-genai-perplexity";
+      desktopName = "PerplexityAI";
+      genericName = "GenAI - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P GenAI ${firefoxNewWindow} https://www.perplexity.ai/";
+      icon = "${iconPath}/PerplexityAI_Logo.png";
+      comment = "Launch PerplexityAI under the Firefox GenAI Profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })
@@ -575,6 +603,21 @@ in
       mimeTypes = [ "text/html" "text/xml" ];
     })
 
+    # Firefox Solenoid Labs - GitHub
+    (makeDesktopItem {
+      name = "firefox-solenoid-labs-pablo-github";
+      desktopName = "GitHub Solenoid Labs";
+      genericName = "Solenoid Labs - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P SolenoidLabs ${firefoxNewWindow} https://github.com/orgs/Solenoid-Labs/repositories";
+      icon = "${iconPath}/GitHub_Logo.png";
+      comment = "Launch GitHub Web App on Solenoid Labs repositories list under the Firefox Solenoid Labs Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox Academic
+    # ---------------------------------------------------------
+
     # Firefox Academic - Blackboard
     (makeDesktopItem {
       name = "firefox-academic-blackboard";
@@ -586,5 +629,21 @@ in
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })
+
+    # Firefox Phantom
+    # ---------------------------------------------------------
+
+    # Firefox Phantom - GitHub
+    (makeDesktopItem {
+      name = "firefox-phantom-github";
+      desktopName = "GitHub Phantom";
+      genericName = "Phantom - Web App";
+      exec = "${pkgs.firefox}/bin/firefox -P TheHumanPalace ${firefoxNewWindow} https://github.com/orgs/Phantomklange/repositories";
+      icon = "${iconPath}/GitHub_Logo.png";
+      comment = "Launch GitHub Web App on Phantom repositories list under the Firefox Phantom Profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
   ];
 }

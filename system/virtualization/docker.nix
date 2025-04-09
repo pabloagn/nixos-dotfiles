@@ -1,3 +1,9 @@
+# ---------------------------------------------------------
+# Route:............/system/virtualization/docker.nix
+# Type:.............Module
+# Created by:.......Pablo Aguirre
+# ---------------------------------------------------------
+
 { config, pkgs, ... }:
 
 {
@@ -6,6 +12,6 @@
     enableOnBoot = true;
   };
 
-  # Add your user to the docker group (replace "yourusername" with your actual username)
+  # Add my user to the docker group
   users.users.pabloagn.extraGroups = [ "docker" ];
 }

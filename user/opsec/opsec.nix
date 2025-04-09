@@ -33,7 +33,7 @@
 
   # Exploitation Frameworks
   # ------------------------------------------
-  armitage
+  # armitage
   metasploit
 
   # Forensics and Incident Response
