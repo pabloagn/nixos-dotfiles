@@ -112,14 +112,26 @@ in
       mimeTypes = [ "text/html" "text/xml" ];
     })
 
-    # Firefox - The Human Palace
+    # Firefox - Phantom
     (makeDesktopItem {
-      name = "firefox-the-human-palace";
-      desktopName = "Firefox The Human Palace";
+      name = "firefox-phantom";
+      desktopName = "Firefox Phantom";
       genericName = "Profile";
       exec = "${pkgs.firefox}/bin/firefox -P TheHumanPalace ${firefoxNewWindow} %u";
       icon = "${iconPath}/Firefox_General_Logo.png";
-      comment = "Launch Firefox with The Human Palace profile.";
+      comment = "Launch Firefox with the Phantom profile.";
+      categories = [ "Network" "WebBrowser" ];
+      mimeTypes = [ "text/html" "text/xml" ];
+    })
+
+    # Firefox - Phantom
+    (makeDesktopItem {
+      name = "firefox-genai";
+      desktopName = "Firefox GenAI Dev";
+      genericName = "Profile";
+      exec = "${pkgs.firefox}/bin/firefox -P GenAI ${firefoxNewWindow} %u";
+      icon = "${iconPath}/Firefox_General_Logo.png";
+      comment = "Launch Firefox with the GenAI profile.";
       categories = [ "Network" "WebBrowser" ];
       mimeTypes = [ "text/html" "text/xml" ];
     })
