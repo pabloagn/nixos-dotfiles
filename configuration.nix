@@ -7,7 +7,7 @@
 { pkgs, config, ... }:
 
 # Define system variables
-  
+
 {
   # ------------------------------------------
   # Environment variables export
@@ -87,33 +87,48 @@
   # ------------------------------------------
   # Desktop Environment & Window Manager
   # ------------------------------------------
+  # (Your existing commented-out sections remain)
 
 
-  # KDE Plasma Desktop Environment
   # ------------------------------------------
-  # Enable the KDE Plasma Desktop Environment.
-  #services.displayManager.sddm.enable = true;
-
-  #services.xserver.displayManager.defaultSession = "none+bspwm";
-  #services.xserver.windowManager.bspwm.enable = true;
+  # systemd-logind Configuration (NEW SECTION)
+  # ------------------------------------------
+  # Configure systemd-logind behavior for lid switch
+  services.logind = {
+    extraConfig = ''
+      HandleLidSwitch=suspend
+      HandleLidSwitchExternalPower=suspend
+      HandleLidSwitchDocked=ignore
+    '';
+  };
 
   # ------------------------------------------
   # Packages
   # ------------------------------------------
+
+  # Add jq needed by the display management script to system packages
+  # It's better here than in home.packages as the script might run in different contexts
+  environment.systemPackages = with pkgs; [
+    jq
+    # You can add other essential system-wide CLI tools here if needed
+  ];
 
   # Allow unfree packages
   # ------------------------------------------
   nixpkgs.config.allowUnfree = true;
 
   # Allow experimental features
+  # ------------------------------------------
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # ------------------------------------------
+  # State Version (Keep as is)
+  # ------------------------------------------
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.05"; # Or your actual state version
 }
-

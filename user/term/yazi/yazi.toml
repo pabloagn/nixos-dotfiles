@@ -6,6 +6,7 @@
 
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
+
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [manager]
@@ -47,8 +48,6 @@ reveal = [
 	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
 	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
 	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
-	# Consider adding a specific file manager if xdg-open isn't desired, e.g.:
-	# { run = 'thunar "$(dirname "$1")"',           desc = "Reveal (Thunar)", for = "linux" },
 	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
@@ -63,23 +62,21 @@ play = [
 
 [open]
 rules = [
-	# -- You might want to customize opener precedence here --
-	# -- For example, make archives open with 'edit' first if desired --
 	# Folder
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
-	# Text
+	# Text (Markdown handled separately by previewer rule)
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image
-	{ mime = "image/*", use = [ "open", "reveal" ] }, # Could add 'edit' here if you edit images often
+	{ mime = "image/*", use = [ "open", "reveal" ] },
 	# Media
-	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] }, # Could add 'edit' if you edit metadata
+	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
 	# Archive
 	{ mime = "application/{,g}zip", use = [ "extract", "reveal" ] },
 	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", use = [ "extract", "reveal" ] },
 	# JSON / JS
 	{ mime = "application/{json,x-ndjson}", use = [ "edit", "reveal" ] },
 	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
-	# PDF (often good to have 'edit' for metadata or simple text edits)
+	# PDF
 	{ mime = "application/pdf", use = [ "open", "edit", "reveal" ] },
 	# Empty file
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
@@ -115,8 +112,16 @@ preloaders = [
 ]
 # -- Previewers display the content --
 previewers = [
-	{ name = "*/", run = "folder", sync = true }, # Folder preview runs synchronously
-	# Code (using internal syntect)
+  # --- MARKDOWN RULE ---
+  # Use custom script for Markdown rendering (points to ~/.config/yazi/plugins/markdown.sh)
+  # { mime = "text/markdown", run = "markdown" },
+  # Alternatively, if mime detection is unreliable, use filename pattern:
+  # { name = "*.{md,markdown}", run = "markdown" },
+  # --- END MARKDOWN RULE ---
+
+	# Folder
+  { name = "*/", run = "folder", sync = true },
+	# Code (will now be skipped for text/markdown due to the rule above)
 	{ mime = "text/*", run = "code" },
 	{ mime = "*/{xml,javascript,x-wine-extension-ini}", run = "code" },
 	# JSON

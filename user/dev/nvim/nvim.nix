@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# Route:...........././user/term/nvim/nvim.nix
+# Route:............/user/term/nvim/nvim.nix
 # Type:.............Module
 # Created by:.......Pablo Aguirre
 # ----------------------------------------------------------------------
@@ -11,6 +11,7 @@
   # Packages
   # ------------------------------------------
   home.packages = with pkgs; [
+    neovim-remote
   ];
 
   # ------------------------------------------
@@ -173,8 +174,11 @@
         ]));
         config = toLuaFile ./plugin/treesitter.lua;
       }
-
       vim-nix
+      {
+        plugin = vimtex;
+        config = toLuaFile ./plugin/vimtex.lua;
+      }
 
     ];
 

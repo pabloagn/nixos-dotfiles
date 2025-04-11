@@ -1,5 +1,5 @@
 -----------------------------------------------------------
--- Route:............system/interface/fonts.nix
+-- Route:............user/dev/nvim/options.nix
 -- Type:.............Module
 -- Created by:.......Pablo Aguirre
 -----------------------------------------------------------
@@ -167,6 +167,38 @@ vim.keymap.set('v', '<Leader>c', ":lua require('Comment.api').toggle.linewise(vi
 
 -- Toggle comment for the current line (Normal mode)
 vim.keymap.set('n', '<Leader>c', ":lua require('Comment.api').toggle.linewise.current()<CR>", { noremap = true, silent = true, desc = 'Toggle comment' })
+
+-- VimTeX (LaTeX Editing)
+--------------------------------------------
+
+-- Use <space> as leader based on vim.g.mapleader = ' '
+
+-- Compile the document (starts continuous compilation if configured)
+vim.keymap.set('n', '<Leader>ll', '<Plug>(vimtex-compile)', { noremap = true, silent = true, desc = "VimTeX Compile" })
+
+-- View the compiled PDF (opens Zathura)
+vim.keymap.set('n', '<Leader>lv', '<Plug>(vimtex-view)', { noremap = true, silent = true, desc = "VimTeX View PDF" })
+
+-- Perform forward SyncTeX search (jump from code to PDF position)
+vim.keymap.set('n', '<Leader>ls', '<Plug>(vimtex-synctex-forward)', { noremap = true, silent = true, desc = "VimTeX SyncTeX Forward" })
+
+-- Clean auxiliary files (latexmk -C)
+vim.keymap.set('n', '<Leader>lc', '<Plug>(vimtex-clean)', { noremap = true, silent = true, desc = "VimTeX Clean Aux Files" })
+
+-- Clean auxiliary files thoroughly (including PDF) (latexmk -c)
+vim.keymap.set('n', '<Leader>lC', '<Plug>(vimtex-clean-full)', { noremap = true, silent = true, desc = "VimTeX Clean Full (incl. PDF)" })
+
+-- Show the compilation output/log
+vim.keymap.set('n', '<Leader>lo', '<Plug>(vimtex-compile-output)', { noremap = true, silent = true, desc = "VimTeX Show Output" })
+
+-- Show VimTeX status information
+vim.keymap.set('n', '<Leader>lg', '<Plug>(vimtex-status)', { noremap = true, silent = true, desc = "VimTeX Status" })
+
+-- Toggle the Table of Contents window
+vim.keymap.set('n', '<Leader>lt', '<Plug>(vimtex-toc-toggle)', { noremap = true, silent = true, desc = "VimTeX Toggle TOC" })
+
+-- Show compilation errors in a quickfix list
+vim.keymap.set('n', '<Leader>le', '<Plug>(vimtex-errors)', { noremap = true, silent = true, desc = "VimTeX Show Errors" })
 
 
 -- Multicursors.nvim (Multiple cursors)
