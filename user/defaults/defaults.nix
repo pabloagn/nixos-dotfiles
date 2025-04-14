@@ -14,7 +14,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "application/pdf" = ["okular.desktop"];
+      "application/pdf" = ["org.kde.okular.desktop"];
       "application/x-extension-htm" = ["firefox.desktop"];
       "application/x-extension-html" = ["firefox.desktop"];
       "application/x-extension-shtml" = ["firefox.desktop"];

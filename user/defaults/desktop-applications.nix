@@ -608,7 +608,7 @@ in
       name = "firefox-solenoid-labs-pablo-github";
       desktopName = "GitHub Solenoid Labs";
       genericName = "Solenoid Labs - Web App";
-      exec = "${pkgs.firefox}/bin/firefox -P SolenoidLabs ${firefoxNewWindow} https://github.com/orgs/Solenoid-Labs/repositories";
+      exec = "${pkgs.firefox}/bin/firefox -P SolenoidLabsPablo ${firefoxNewWindow} https://github.com/orgs/Solenoid-Labs/repositories";
       icon = "${iconPath}/GitHub_Logo.png";
       comment = "Launch GitHub Web App on Solenoid Labs repositories list under the Firefox Solenoid Labs Profile.";
       categories = [ "Network" "WebBrowser" ];

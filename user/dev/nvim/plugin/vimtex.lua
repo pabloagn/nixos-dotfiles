@@ -1,47 +1,32 @@
--- ./plugin/vimtex.lua
+-- .dotfiles/user/dev/nvim/plugin/vimtex.lua
 
--- Check if vimtex is loaded before configuring (good practice)
-if not vim.g.loaded_vimtex then
-  -- Vimtex might not be loaded yet if this file is sourced too early
-  -- Alternatively, wrap this whole file's content in vim.defer_fn if issues arise
+if vim.g.loaded_vimtex then
+  print("Attempting to configure vimtex for Okular...")
+
+  -- ===== VimTeX Configuration for Okular =====
+
+  -- Viewer: CHANGE THIS TO OKULAR
+  vim.g.vimtex_view_method = 'okular'
+  -- Okular-specific options for forward SyncTeX
+  -- The exact format might vary slightly, this is a common one.
+  -- '--unique' ensures only one Okular instance handles the file.
+  vim.g.vimtex_view_okular_options = '--unique file:%f#src:%l%f'
+
+  -- Compiler: Use latexmk (provided by the flake's devShell)
+  vim.g.vimtex_compiler_method = 'latexmk'
+  vim.g.vimtex_compiler_latexmk = {
+      continuous = 1,
+      executable = 'latexmk',
+  }
+
+  -- SyncTeX: Use nvr for backward sync (Okular -> Neovim)
+  -- Okular typically uses DBus to call back, which vimtex/nvr handles.
+  vim.g.vimtex_compiler_progname = 'nvr'
+
+  -- Optional: Automatically open the viewer
+  vim.g.vimtex_view_automatic = 1
+
+  print("Vimtex configuration updated for Okular.")
+else
   print("Vimtex plugin not detected yet, configuration might be deferred.")
-  -- return -- You might uncomment this if you strictly want it loaded first
 end
-
-print("Attempting to configure vimtex...")
-
--- ===== VimTeX Configuration =====
-
--- Viewer: Use Zathura (provided by the project flake's devShell)
-vim.g.vimtex_view_method = 'zathura'
--- Ensure Zathura uses nvr (now globally available via home.packages) for backward sync
-vim.g.vimtex_view_zathura_options = '--synctex-editor-command "nvr --remote-silent +%{line} %{input}"'
-vim.g.vimtex_view_general_viewer = 'zathura' -- Explicitly set general viewer too
-
--- Compiler: Use latexmk (provided by the project flake's devShell)
-vim.g.vimtex_compiler_method = 'latexmk'
-vim.g.vimtex_compiler_latexmk = {
-    continuous = 1,          -- Enable continuous compilation on save
-    executable = 'latexmk',  -- Use latexmk from the PATH (flake provides it)
-    -- Add build engine options if needed (e.g., for XeLaTeX or LuaLaTeX)
-    -- options = {
-    --   '-pdfxe',           -- Example for XeLaTeX
-    --   '-shell-escape',    -- If needed by packages like minted
-    --   '-verbose',         -- For debugging compilation issues
-    -- },
-}
-
--- SyncTeX: Tell vimtex which program to expect backward sync calls from (nvr)
-vim.g.vimtex_compiler_progname = 'nvr'
-
--- Optional: Automatically open the viewer after the first successful compilation
-vim.g.vimtex_view_automatic = 1 -- Set to 0 if you prefer manual opening via <leader>lv
-
--- Optional: LaTeX-specific conceals (requires 'conceallevel' and 'concealcursor' options set elsewhere, e.g., options.lua)
--- vim.g.vimtex_syntax_conceal_enable = 1
-
-print("Vimtex configuration loaded (or attempted).")
-
--- Note: If configuration doesn't seem to apply, it might be related to Lua module loading order.
--- Wrapping the contents in vim.cmd([[ LUA_HERE ]]) or using vim.defer_fn might be needed in complex setups.
--- For this structure, it should generally work as `config` is applied after plugin load.
