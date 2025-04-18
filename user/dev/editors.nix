@@ -23,5 +23,6 @@
     rstudio
     vscode
     # vscodium
+    code-cursor
   ];
 }
