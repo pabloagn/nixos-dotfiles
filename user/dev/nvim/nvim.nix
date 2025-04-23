@@ -50,9 +50,9 @@
     # Additional batteries
     extraPackages = with pkgs; [
       lua-language-server
+      nixd
       nil
-      #rnix-lsp
-      #xclip
+      nixpkgs-fmt
       wl-clipboard
     ];
 
@@ -63,6 +63,8 @@
         plugin = nvim-lspconfig;
         config = toLuaFile ./plugin/lsp.lua;
       }
+
+      cmp-nixpkgs-maintainers
 
       {
         plugin = multicursors-nvim;

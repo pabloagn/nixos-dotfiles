@@ -25,7 +25,6 @@
     python310Packages.jupyter
     python310Packages.notebook
     python310Packages.ipykernel
-
     #python310
     #python311
     R

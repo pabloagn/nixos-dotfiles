@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# Route:...........././user/media/media.nix
+# Route:............/user/media/media.nix
 # Type:.............Module
 # Created by:.......Pablo Aguirre
 # ----------------------------------------------------------------------
@@ -49,7 +49,7 @@
     tidal-hifi
 
     # Transmission GUI
-    transmission-qt
+    transmission_4-qt
 
     # QBitorrent
     # qbittorrent

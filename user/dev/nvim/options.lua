@@ -81,10 +81,10 @@ vim.o.smartindent = true
 vim.o.smarttab = true
 
 -- Set number of spaces for each tab
-vim.o.tabstop = 2
+vim.o.tabstop = 4
 
 -- Set number of spaces when shifting text
-vim.o.shiftwidth = 2
+vim.o.shiftwidth = 4
 
 --------------------------------------------
 -- Memory, CPU

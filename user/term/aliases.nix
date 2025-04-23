@@ -79,6 +79,11 @@
   # Nix System
   ns = "z $DOTFILES && sudo nixos-rebuild switch --flake .";
 
+  # VS Code
+  # ------------------------------------------
+  # Fix the annoying ozone warning (does not affect functionality)
+  code = "code 2>/dev/null";
+
   # Custom Scripts
   # ------------------------------------------
   # Scripts - Header Overwrite (overwrites headers for .nix files)

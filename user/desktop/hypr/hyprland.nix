@@ -69,6 +69,7 @@ in
   home.packages = with pkgs; [
     jq # Might still be useful for manual debugging or future scripts
     hyprpaper
+    hyprcursor
     coreutils # Provides 'seq'
     gawk # Provides 'timeout'
   ];

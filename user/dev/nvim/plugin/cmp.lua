@@ -1,5 +1,5 @@
 -----------------------------------------------------------
--- Route:............system/interface/fonts.nix
+-- Route:............user/dev/nvim/plugin/cmp.lua
 -- Type:.............Module
 -- Created by:.......Pablo Aguirre
 -----------------------------------------------------------
@@ -47,5 +47,6 @@ cmp.setup {
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+				{ name = 'nixpkgs_maintainers' }
     },
 }

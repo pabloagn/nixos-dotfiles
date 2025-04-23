@@ -4,7 +4,6 @@
 # Created by:.......Pablo Aguirre
 # ----------------------------------------------------------------------
 
-# ***** CHANGE 1: Add pkgs-unstable to the function arguments *****
 { config, pkgs, pkgs-unstable, ... }:
 
 {

@@ -15,6 +15,16 @@
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Add Hyprland as an input for hyprlang
+    hyprland.url = "github:hyprwm/hyprland";
+    
+    # Add rose-pine-hyprcursor
+    rose-pine-hyprcursor = {
+      url = "github:ndom91/rose-pine-hyprcursor";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprlang.follows = "hyprland/hyprlang";
+    };
   };
 
   outputs = {self, nixpkgs, nixpkgs-unstable, home-manager, ...}@inputs:
@@ -44,7 +54,7 @@
         };
         modules = [ ./home.nix ];
         extraSpecialArgs = {
-          inherit pkgs-unstable;
+          inherit pkgs-unstable inputs;
         };
       };
     };
