@@ -34,14 +34,16 @@
     };
 
   # OpenGL options
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-
-    # Most wayland compositors need this for nvidia graphics
-    # Skip if using AMD
-    #nvidia.modesetting.enable = true;
-    };
+    enable32Bit = true;
+    # AMD-specific packages
+    extraPackages = with pkgs; [
+      amdvlk
+      rocmPackages.clr
+    ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      amdvlk
+    ];
+  };
 }
-

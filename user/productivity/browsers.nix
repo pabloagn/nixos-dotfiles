@@ -1,34 +1,23 @@
 # ----------------------------------------------------------------------
-# Route:...........././user/productivity/browsers.nix
+# Route:............/user/productivity/browsers.nix
 # Type:.............Module
 # Created by:.......Pablo Aguirre
 # ----------------------------------------------------------------------
 
-{ config, pkgs, ... }:
+# ***** CHANGE 1: Add pkgs-unstable to the function arguments *****
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   # ------------------------------------------
   # Requirements
   # ------------------------------------------
-  home.packages = with pkgs; [
-    # brave
-    firefox-devedition
-    w3m
-    # Open-source version of Firefox
-    # Firefox is installed system-wide
-    librewolf
-
-    # Tor browser
-    tor
-    tor-browser
-
-    # Lightweight browser for special windows
-    qutebrowser
-
-    google-chrome
-
-    # Backup browsers
-    brave
+  home.packages = [
+    pkgs-unstable.firefox-devedition
+    pkgs.brave              # Get Brave from stable (needs allowUnfree=true in flake)
+    pkgs.w3m                # Get w3m from stable
+    pkgs.librewolf          # Get Librewolf from stable
+    pkgs.tor-browser-bundle-bin
+    pkgs.qutebrowser        # Get Qutebrowser from stable
+    pkgs.google-chrome      # Get Chrome from stable (needs allowUnfree=true in flake)
   ];
 }
-

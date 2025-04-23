@@ -16,7 +16,7 @@
   # ------------------------------------------
 
   # Enable sound
-  sound.enable = true;
+  # sound.enable = true;
 
   # Pulseaudio
   hardware.pulseaudio.enable = false;
