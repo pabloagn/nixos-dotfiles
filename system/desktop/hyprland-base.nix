@@ -18,9 +18,7 @@
   # ------------------------------------------
   environment.systemPackages = with pkgs; [
     hyprland
-    # Menu bar
     waybar
-    #eww
 
     # Notification daemon
     dunst
@@ -32,7 +30,6 @@
     #swaybg
     #wpaperd
     #mpvpaper
-
     #swww
 
     # Cursor
@@ -40,8 +37,7 @@
 
     # App launcher
     rofi-wayland
-    #wofi
-    #tofi
+    fuzzel
 
     # Lock screen
     hyprlock

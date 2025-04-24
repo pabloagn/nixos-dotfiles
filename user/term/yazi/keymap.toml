@@ -1,11 +1,21 @@
 # ---------------------------------------------------------
-# Route:............system/interface/fonts.nix
+# Route:............/user/term/yazi/keymap.toml
 # Type:.............Module
 # Created by:.......Pablo Aguirre
 # ---------------------------------------------------------
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[[manager.prepend_keymap]]
+on   = [ "c", "m" ]
+run  = "plugin chmod"
+desc = "Chmod on selected files"
+
+[[manager.prepend_keymap]]
+on = "<A-y>"
+run = ["plugin copy-file-contents"]
+desc = "Copy contents of file"
 
 [manager]
 

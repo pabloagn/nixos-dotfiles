@@ -1,7 +1,7 @@
-#!/ust/bin/env bash
+#!/usr/bin/env bash
 
 # ---------------------------------------------------------
-# Route:............system/interface/fonts.nix
+# Route:............/user/term/yazi/get_plugins.sh
 # Type:.............Module
 # Created by:.......Pablo Aguirre
 # ---------------------------------------------------------

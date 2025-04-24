@@ -46,7 +46,7 @@
     };
     homeConfigurations = {
       pabloagn = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {   # Use the stable 'nixpkgs' (24.11) input
+        pkgs = import nixpkgs {
           inherit system;
           config = {
             allowUnfree = true;

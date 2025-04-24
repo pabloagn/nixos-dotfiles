@@ -110,15 +110,11 @@ preloaders = [
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/vnd.ms-opentype", run = "font" },
 ]
-# -- Previewers display the content --
-previewers = [
-  # --- MARKDOWN RULE ---
-  # Use custom script for Markdown rendering (points to ~/.config/yazi/plugins/markdown.sh)
-  # { mime = "text/markdown", run = "markdown" },
-  # Alternatively, if mime detection is unreliable, use filename pattern:
-  # { name = "*.{md,markdown}", run = "markdown" },
-  # --- END MARKDOWN RULE ---
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+]
 
+previewers = [
 	# Folder
   { name = "*/", run = "folder", sync = true },
 	# Code (will now be skipped for text/markdown due to the rule above)

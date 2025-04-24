@@ -77,7 +77,6 @@ in
   # --- Config Files ---
   # Source hyprland.conf
   xdg.configFile."hypr/hyprland.conf" = { source = ./hyprland.conf; };
-  # Source modules (monitors.conf now has static laptop definition)
   xdg.configFile."hypr/modules/monitors.conf" = { source = ./modules/monitors.conf; }; # Link static config
   xdg.configFile."hypr/modules/keybinds.conf" = { source = ./modules/keybinds.conf; };
   xdg.configFile."hypr/modules/workspaces.conf" = { source = ./modules/workspaces.conf; };
