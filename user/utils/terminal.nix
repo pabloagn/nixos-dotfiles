@@ -36,12 +36,8 @@
   disfetch
   dmidecode
   eza
-  # fd: Doom Emacs optional dependency
-  # A faster alternative to find
   fd
   git
-  # gnutls: Doom Emacs optional dependency
-  # For TLS connectivity
   gnutls
   hwinfo
   hyprpicker
@@ -55,6 +51,7 @@
   sd
   tree
   wget
+
 
   # Clipboard Management
   # ------------------------------------------

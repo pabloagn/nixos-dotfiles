@@ -16,12 +16,12 @@
   # Requirements
   # ------------------------------------------
   environment.systemPackages = with pkgs; [
+    radeontop
   ];
 
   # Options
   # ------------------------------------------
   programs.hyprland = {
-    #nvidiaPatches = true;
     xwayland.enable = true;
     };
 
@@ -31,16 +31,21 @@
 
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
+
+    # AMD-specific environment variables
+    # NOTE: New additionfor screen artifact debugging
+    AMD_VULKAN_ICD = "RADV";
     };
 
   # OpenGL options
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    # AMD-specific packages
     extraPackages = with pkgs; [
       amdvlk
       rocmPackages.clr
+      # NOTE: New additionfor screen artifact debugging
+      libvdpau-va-gl
     ];
     extraPackages32 = with pkgs.pkgsi686Linux; [
       amdvlk

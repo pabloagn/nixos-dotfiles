@@ -8,9 +8,9 @@
   description = "NixOS configuration for sanctum-nixos system";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11"; # Using 24.11
+    nixpkgs.url = "nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-24.11"; # Using 24.11 HM
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     sops-nix.url = "github:Mic92/sops-nix";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

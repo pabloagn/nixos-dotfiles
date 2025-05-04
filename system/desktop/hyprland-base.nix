@@ -22,15 +22,7 @@
 
     # Notification daemon
     dunst
-
-    # dunst dependence
     libnotify
-
-    # Wallpaper daemon
-    #swaybg
-    #wpaperd
-    #mpvpaper
-    #swww
 
     # Cursor
     hyprcursor
