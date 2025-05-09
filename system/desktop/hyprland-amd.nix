@@ -44,7 +44,7 @@
     extraPackages = with pkgs; [
       amdvlk
       rocmPackages.clr
-      # NOTE: New additionfor screen artifact debugging
+      # NOTE: New addition for screen artifact debugging
       libvdpau-va-gl
     ];
     extraPackages32 = with pkgs.pkgsi686Linux; [
