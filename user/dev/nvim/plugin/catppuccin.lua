@@ -1,5 +1,5 @@
 -----------------------------------------------------------
--- Route:............system/interface/fonts.nix
+-- Route:............user/dev/nvim/plugin/catppuccin.lua
 -- Type:.............Module
 -- Created by:.......Pablo Aguirre
 -----------------------------------------------------------

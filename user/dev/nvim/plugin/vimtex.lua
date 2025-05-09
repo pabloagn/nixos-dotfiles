@@ -1,32 +1,32 @@
--- .dotfiles/user/dev/nvim/plugin/vimtex.lua
+-----------------------------------------------------------
+-- Route:............user/dev/nvim/plugin/vimtex.lua
+-- Type:.............Module
+-- Created by:.......Pablo Aguirre
+-----------------------------------------------------------
 
-if vim.g.loaded_vimtex then
-  print("Attempting to configure vimtex for Okular...")
+return {
 
-  -- ===== VimTeX Configuration for Okular =====
+  "lervag/vimtex",
+  lazy = false,
 
-  -- Viewer: CHANGE THIS TO OKULAR
-  vim.g.vimtex_view_method = 'okular'
-  -- Okular-specific options for forward SyncTeX
-  -- The exact format might vary slightly, this is a common one.
-  -- '--unique' ensures only one Okular instance handles the file.
-  vim.g.vimtex_view_okular_options = '--unique file:%f#src:%l%f'
+  init = function()
 
-  -- Compiler: Use latexmk (provided by the flake's devShell)
-  vim.g.vimtex_compiler_method = 'latexmk'
-  vim.g.vimtex_compiler_latexmk = {
-      continuous = 1,
-      executable = 'latexmk',
-  }
+    vim.g.vimtex_view_method = "zathura"
 
-  -- SyncTeX: Use nvr for backward sync (Okular -> Neovim)
-  -- Okular typically uses DBus to call back, which vimtex/nvr handles.
-  vim.g.vimtex_compiler_progname = 'nvr'
+    vim.g.vimtex_compiler_method = "latexmk"
+    vim.g.vimtex_compiler_latexmk = {
+      out_dir = "build",
+      options = { "-pdf", "-interaction=nonstopmode", "-synctex=1"},
+    }
 
-  -- Optional: Automatically open the viewer
-  vim.g.vimtex_view_automatic = 1
+    vim.g.vimtex_doc_enabled = 0
+    vim.g.vimtex_complete_enabled = 0
+    vim.g.vimtex_syntax_enabled = 0
+    vim.g.vimtex_imaps_enabled = 0
 
-  print("Vimtex configuration updated for Okular.")
-else
-  print("Vimtex plugin not detected yet, configuration might be deferred.")
-end
+    vim.g.vimtex_view_forward_search_on_start = 0
+
+    vim.keymap.set("n", "<leader>ll", function() vim.cmd("VimtexCompile") end)
+
+  end
+}

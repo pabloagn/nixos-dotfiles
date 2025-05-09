@@ -11,10 +11,6 @@
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
-    # beancount: An accounting language for financial entries
-    beancount
-    # fava: Web interface for beancount
-    fava
     go
     haskell-language-server
     julia-lts
@@ -25,7 +21,6 @@
     python310Packages.jupyter
     python310Packages.notebook
     python310Packages.ipykernel
-    #python310
     #python311
     R
     rustc
