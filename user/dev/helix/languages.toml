@@ -153,20 +153,22 @@ language-servers = ["tailwindcss-language-server", "typescript-language-server"]
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 indent = { tab-width = 2, unit = "  " }
 
+# Commenting this out because server is broken if defined explicitly
 # Shell / Bash
-[language-server.bash-lsp]
-command = "bash-language-server"
-args = ["start"]
-config = { shellcheckPath = "shellcheck" }
+# [language-server.bash-lsp]
+# command = "bash-language-server"
+# args = ["start"]
+# config = { shellcheckPath = "shellcheck" }
 
-[[language]]
-name = "s
-scope = "source.shell"
-file-types = ["sh", "bash", "zsh", ".bashrc", ".zshrc", ".bash_profile", ".profile", "PKGBUILD", ".envrc"]
-comment-tokens = "#"
-language-servers = ["bash-lsp"]
-formatter = { command = "shfmt", args = ["-i", "2"] } # Indent with 2 spaces
-indent = { tab-width = 2, unit = "  " }
+# [[language]]
+# name = "sh"
+# grammar = "bash"
+# scope = "source.shell"
+# file-types = ["sh", "bash", "zsh", ".bashrc", ".zshrc", ".bash_profile", ".profile", "PKGBUILD", ".envrc"]
+# comment-tokens = "#"
+# language-servers = ["bash-lsp"]
+# formatter = { command = "shfmt", args = ["-i", "2"] } # Indent with 2 spaces
+# indent = { tab-width = 2, unit = "  " }
 
 # HTML
 [language-server.vscode-html-language-server]
@@ -194,5 +196,4 @@ indent = { tab-width = 2, unit = "  " }
 [[language]]
 name = "ini"
 indent = { tab-width = 2, unit = "  " }
-comment-tokens = [";", "#"]
 

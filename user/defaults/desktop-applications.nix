@@ -20,6 +20,19 @@ in
     # Editors
     # ---------------------------------------------------------
 
+    # Helix
+    (makeDesktopItem {
+      name = "helix-instance";
+      desktopName = "Helix";
+      genericName = "App - Text Editor";
+      exec = "kitty --directory /home/pabloagn hx %F";
+      icon = "${iconPath}/NeoVim_Logo.png";
+      comment = "Edit text files in a terminal using Helix, detached from any terminal instance.";
+      categories = [ "Utility" "TextEditor" ];
+      terminal = false;
+      type = "Application";
+    })
+
     # NeoVim
     # Note:
     #   There's an actual hyprland shortcut for this, since there is this undeletable wrapper that confuses me on Rofi.

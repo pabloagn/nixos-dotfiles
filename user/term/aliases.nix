@@ -11,9 +11,12 @@
 {
   # Basic bindings
   # ------------------------------------------
-  vim = "nvim";
-  vi = "nvim";
-  v = "nvim";
+  # vim = "nvim";
+  # vi = "nvim";
+  # v = "nvim";
+  vim = "hx";
+  vi = "hx";
+  v = "hx";
   cl = "clear";
   # Migrating from lf due to the ammount of issues with previewing and config...
   lf = "yy";

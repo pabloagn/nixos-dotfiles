@@ -68,7 +68,8 @@ hint = { fg = "hint" }
 "diagnostic.unnecessary" = { modifiers = ["dim"] }
 "diagnostic.deprecated" = { modifiers = ["crossed_out"] }
 
-"ui.background" = { bg = "bg", fg = "fg" }
+# "ui.background" = { bg = "bg", fg = "fg" }
+"ui.background" = { fg = "fg" }
 "ui.cursor" = { modifiers = ["reversed"] }
 "ui.cursor.match" = { fg = "orange", modifiers = ["bold"] }
 "ui.cursorline.primary" = { bg = "bg-menu" }

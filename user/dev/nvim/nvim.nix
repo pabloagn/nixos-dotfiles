@@ -27,7 +27,7 @@
     {
       # Enable
       enable = true;
-      defaultEditor = true;
+      # defaultEditor = true;
 
       # Disable wrapper application (in favor of my own version)
       # Note:

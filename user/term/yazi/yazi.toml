@@ -35,7 +35,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ] # [x, y, width, height] offset for ueberzug
 
 [opener]
 edit = [
-	{ run = '${EDITOR:=nvim} "$@"', desc = "${EDITOR:-nvim}", block = true, for = "unix" }, # Use nvim as default if $EDITOR is unset
+	{ run = '${EDITOR:=hx} "$@"', desc = "${EDITOR:-hx}", block = true, for = "unix" }, # Use hx as default if $EDITOR is unset
 	{ run = 'code %*',            orphan = true, desc = "code",           for = "windows" },
 	{ run = 'code -w %*',         block = true,  desc = "code (block)",   for = "windows" },
 ]

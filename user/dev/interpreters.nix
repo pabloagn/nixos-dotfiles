@@ -14,16 +14,12 @@
 
     # Interpreters
     # -----------------------------
+    gcc
+    gnumake
     go
     julia-lts
     nodejs_20
     python310
-    python310Packages.pip
-    python310Packages.jupyter
-    python310Packages.notebook
-    python310Packages.ipykernel
-    #python311
-    R
     rustc
     rustup
     scala_3
@@ -41,7 +37,7 @@
     # -----------------------------
     haskell-language-server
     metals
-    rust-analyzer
+    # rust-analyzer
     go-tools
     pyright
     texlab
@@ -63,7 +59,6 @@
     nodePackages.prettier
     stylua
     shfmt
-
   ];
 
 }

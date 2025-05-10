@@ -79,15 +79,15 @@ in
       # Conventional Session Vars 
       # ------------------------------------------
       BROWSER           = "firefox";
-      EDITOR            = "nvim";
+      EDITOR            = "hx";
       HISTFILE          = "/home/pabloagn/.cache/zsh/.zsh_history";
       IMAGE             = "feh";
       NODE_REPL_HISTORY = "/home/pabloagn/.cache/node/.node_repl_history";
       PYTHON_HISTORY    = "/home/pabloagn/.cache/python/.python_history";
-      SUDO_EDITOR       = "nvim";
+      SUDO_EDITOR       = "hx";
       TERMINAL          = "kitty";
       VIDEO             = "mpv";
-      VISUAL            = "nvim";
+      VISUAL            = "hx";
       WM                = "Hyprland";
 
       # ZSH

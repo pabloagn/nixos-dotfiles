@@ -11,8 +11,8 @@
   # Module imports
   # ------------------------------------------
   imports = [
-    ./nvim/nvim.nix
     ./helix/helix.nix
+    ./nvim/nvim.nix
     ./emacs/emacs.nix
     ./mousepad/mousepad.nix
     ];

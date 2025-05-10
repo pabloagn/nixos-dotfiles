@@ -20,7 +20,7 @@
       "application/x-extension-shtml" = ["firefox.desktop"];
       "application/x-extension-xht" = ["firefox.desktop"];
       "application/x-extension-xhtml" = ["firefox.desktop"];
-      "application/x-zerosize" = ["nvim.desktop"];
+      "application/x-zerosize" = ["editor.desktop"];
       "application/xhtml+xml" = ["firefox.desktop"];
       "audio/flac" = ["clementine.desktop"];
       "audio/mp3" = ["clementine.desktop"];
@@ -37,7 +37,7 @@
       "image/tiff" = ["feh-image-viewer.desktop"];
       "image/webp" = ["feh-image-viewer.desktop"];
       "text/html" = ["firefox.desktop"];
-      "text/plain" = ["nvim.desktop"];
+      "text/plain" = ["editor.desktop"];
       "video/avi" = ["mpv.desktop"];
       "video/mp4" = ["mpv.desktop"];
       "video/ogg" = ["mpv.desktop"];
@@ -49,157 +49,157 @@
       "x-scheme-handler/https" = ["firefox.desktop"];
       
       # Programming Languages - General Text Formats
-      "text/x-shellscript" = ["nvim.desktop"];
-      "text/x-script.python" = ["nvim.desktop"];
-      "text/x-script.bash" = ["nvim.desktop"];
-      "text/x-c" = ["nvim.desktop"];
-      "text/x-c++" = ["nvim.desktop"];
-      "text/x-java" = ["nvim.desktop"];
-      "text/x-java-source" = ["nvim.desktop"];
-      "text/x-pascal" = ["nvim.desktop"];
-      "text/x-script.perl" = ["nvim.desktop"];
-      "text/x-script.ruby" = ["nvim.desktop"];
-      "text/x-rust" = ["nvim.desktop"];
-      "text/x-haskell" = ["nvim.desktop"];
-      "text/x-literate-haskell" = ["nvim.desktop"];
-      "text/x-lua" = ["nvim.desktop"];
-      "text/x-php" = ["nvim.desktop"];
-      "text/x-ruby" = ["nvim.desktop"];
-      "text/x-python" = ["nvim.desktop"];
-      "text/x-R" = ["nvim.desktop"];
-      "text/x-scala" = ["nvim.desktop"];
-      "text/x-scheme" = ["nvim.desktop"];
-      "text/x-typescript" = ["nvim.desktop"];
-      "text/javascript" = ["nvim.desktop"];
-      "text/x-csrc" = ["nvim.desktop"];
-      "text/x-chdr" = ["nvim.desktop"];
-      "text/x-c++src" = ["nvim.desktop"];
-      "text/x-c++hdr" = ["nvim.desktop"];
-      "text/x-csharp" = ["nvim.desktop"];
-      "text/x-go" = ["nvim.desktop"];
-      "text/x-fortran" = ["nvim.desktop"];
-      "text/x-erlang" = ["nvim.desktop"];
-      "text/x-elixir" = ["nvim.desktop"];
-      "text/x-diff" = ["nvim.desktop"];
-      "text/x-dart" = ["nvim.desktop"];
-      "text/x-cmake" = ["nvim.desktop"];
-      "text/x-clojure" = ["nvim.desktop"];
+      "text/x-shellscript" = ["editor.desktop"];
+      "text/x-script.python" = ["editor.desktop"];
+      "text/x-script.bash" = ["editor.desktop"];
+      "text/x-c" = ["editor.desktop"];
+      "text/x-c++" = ["editor.desktop"];
+      "text/x-java" = ["editor.desktop"];
+      "text/x-java-source" = ["editor.desktop"];
+      "text/x-pascal" = ["editor.desktop"];
+      "text/x-script.perl" = ["editor.desktop"];
+      "text/x-script.ruby" = ["editor.desktop"];
+      "text/x-rust" = ["editor.desktop"];
+      "text/x-haskell" = ["editor.desktop"];
+      "text/x-literate-haskell" = ["editor.desktop"];
+      "text/x-lua" = ["editor.desktop"];
+      "text/x-php" = ["editor.desktop"];
+      "text/x-ruby" = ["editor.desktop"];
+      "text/x-python" = ["editor.desktop"];
+      "text/x-R" = ["editor.desktop"];
+      "text/x-scala" = ["editor.desktop"];
+      "text/x-scheme" = ["editor.desktop"];
+      "text/x-typescript" = ["editor.desktop"];
+      "text/javascript" = ["editor.desktop"];
+      "text/x-csrc" = ["editor.desktop"];
+      "text/x-chdr" = ["editor.desktop"];
+      "text/x-c++src" = ["editor.desktop"];
+      "text/x-c++hdr" = ["editor.desktop"];
+      "text/x-csharp" = ["editor.desktop"];
+      "text/x-go" = ["editor.desktop"];
+      "text/x-fortran" = ["editor.desktop"];
+      "text/x-erlang" = ["editor.desktop"];
+      "text/x-elixir" = ["editor.desktop"];
+      "text/x-diff" = ["editor.desktop"];
+      "text/x-dart" = ["editor.desktop"];
+      "text/x-cmake" = ["editor.desktop"];
+      "text/x-clojure" = ["editor.desktop"];
 
       # Config Files
-      "application/json" = ["nvim.desktop"];
-      "application/toml" = ["nvim.desktop"];
-      "application/x-yaml" = ["nvim.desktop"];
-      "text/yaml" = ["nvim.desktop"];
-      "text/x-ini" = ["nvim.desktop"];
-      "application/xml" = ["nvim.desktop"];
-      "text/xml" = ["nvim.desktop"];
-      "application/x-wine-extension-ini" = ["nvim.desktop"];
-      "application/vnd.coffeescript" = ["nvim.desktop"];
-      "application/x-ndjson" = ["nvim.desktop"];
-      "application/ld+json" = ["nvim.desktop"];
+      "application/json" = ["editor.desktop"];
+      "application/toml" = ["editor.desktop"];
+      "application/x-yaml" = ["editor.desktop"];
+      "text/yaml" = ["editor.desktop"];
+      "text/x-ini" = ["editor.desktop"];
+      "application/xml" = ["editor.desktop"];
+      "text/xml" = ["editor.desktop"];
+      "application/x-wine-extension-ini" = ["editor.desktop"];
+      "application/vnd.coffeescript" = ["editor.desktop"];
+      "application/x-ndjson" = ["editor.desktop"];
+      "application/ld+json" = ["editor.desktop"];
 
       # Web Development
-      "text/css" = ["nvim.desktop"];
-      "text/scss" = ["nvim.desktop"];
-      "text/sass" = ["nvim.desktop"];
-      "text/less" = ["nvim.desktop"];
-      "application/javascript" = ["nvim.desktop"];
-      "application/typescript" = ["nvim.desktop"];
-      "application/x-typescript" = ["nvim.desktop"];
-      "application/x-httpd-php" = ["nvim.desktop"];
-      "application/x-php" = ["nvim.desktop"];
-      "application/jsx" = ["nvim.desktop"];
-      "application/x-jsx" = ["nvim.desktop"];
-      "application/tsx" = ["nvim.desktop"];
-      "application/x-tsx" = ["nvim.desktop"];
-      "application/graphql" = ["nvim.desktop"];
-      "application/wasm" = ["nvim.desktop"];
+      "text/css" = ["editor.desktop"];
+      "text/scss" = ["editor.desktop"];
+      "text/sass" = ["editor.desktop"];
+      "text/less" = ["editor.desktop"];
+      "application/javascript" = ["editor.desktop"];
+      "application/typescript" = ["editor.desktop"];
+      "application/x-typescript" = ["editor.desktop"];
+      "application/x-httpd-php" = ["editor.desktop"];
+      "application/x-php" = ["editor.desktop"];
+      "application/jsx" = ["editor.desktop"];
+      "application/x-jsx" = ["editor.desktop"];
+      "application/tsx" = ["editor.desktop"];
+      "application/x-tsx" = ["editor.desktop"];
+      "application/graphql" = ["editor.desktop"];
+      "application/wasm" = ["editor.desktop"];
 
       # Documentation & Markup
-      "text/markdown" = ["nvim.desktop"];
-      "text/x-markdown" = ["nvim.desktop"];
-      "text/x-rst" = ["nvim.desktop"];
-      "text/x-tex" = ["nvim.desktop"];
-      "text/x-latex" = ["nvim.desktop"];
-      "application/x-tex" = ["nvim.desktop"];
-      "application/x-latex" = ["nvim.desktop"];
-      "text/asciidoc" = ["nvim.desktop"];
-      "text/x-org" = ["nvim.desktop"];
-      "text/x-textile" = ["nvim.desktop"];
-      "application/x-rmarkdown" = ["nvim.desktop"];
-      "application/x-jupyter-notebook+json" = ["nvim.desktop"];
+      "text/markdown" = ["editor.desktop"];
+      "text/x-markdown" = ["editor.desktop"];
+      "text/x-rst" = ["editor.desktop"];
+      "text/x-tex" = ["editor.desktop"];
+      "text/x-latex" = ["editor.desktop"];
+      "application/x-tex" = ["editor.desktop"];
+      "application/x-latex" = ["editor.desktop"];
+      "text/asciidoc" = ["editor.desktop"];
+      "text/x-org" = ["editor.desktop"];
+      "text/x-textile" = ["editor.desktop"];
+      "application/x-rmarkdown" = ["editor.desktop"];
+      "application/x-jupyter-notebook+json" = ["editor.desktop"];
 
       # Database & Data
-      "application/sql" = ["nvim.desktop"];
-      "text/x-sql" = ["nvim.desktop"];
-      "text/csv" = ["nvim.desktop"];
-      "text/tab-separated-values" = ["nvim.desktop"];
-      "application/vnd.sqlite3" = ["nvim.desktop"];
-      "application/x-sqlite3" = ["nvim.desktop"];
+      "application/sql" = ["editor.desktop"];
+      "text/x-sql" = ["editor.desktop"];
+      "text/csv" = ["editor.desktop"];
+      "text/tab-separated-values" = ["editor.desktop"];
+      "application/vnd.sqlite3" = ["editor.desktop"];
+      "application/x-sqlite3" = ["editor.desktop"];
       
       # Shell/System
-      "application/x-sh" = ["nvim.desktop"];
-      "application/x-shellscript" = ["nvim.desktop"];
-      "application/x-desktop" = ["nvim.desktop"];
-      "application/x-executable" = ["nvim.desktop"];
-      "text/x-makefile" = ["nvim.desktop"];
-      "text/x-meson" = ["nvim.desktop"];
-      "text/x-cmake-project" = ["nvim.desktop"];
-      "application/x-perl" = ["nvim.desktop"];
-      "application/x-ruby" = ["nvim.desktop"];
-      "application/x-python" = ["nvim.desktop"];
-      "application/x-bash" = ["nvim.desktop"];
-      "application/x-zsh" = ["nvim.desktop"];
-      "application/x-fish" = ["nvim.desktop"];
-      "application/x-systemd-unit" = ["nvim.desktop"];
+      "application/x-sh" = ["editor.desktop"];
+      "application/x-shellscript" = ["editor.desktop"];
+      "application/x-desktop" = ["editor.desktop"];
+      "application/x-executable" = ["editor.desktop"];
+      "text/x-makefile" = ["editor.desktop"];
+      "text/x-meson" = ["editor.desktop"];
+      "text/x-cmake-project" = ["editor.desktop"];
+      "application/x-perl" = ["editor.desktop"];
+      "application/x-ruby" = ["editor.desktop"];
+      "application/x-python" = ["editor.desktop"];
+      "application/x-bash" = ["editor.desktop"];
+      "application/x-zsh" = ["editor.desktop"];
+      "application/x-fish" = ["editor.desktop"];
+      "application/x-systemd-unit" = ["editor.desktop"];
       
       # Version Control
-      "text/x-patch" = ["nvim.desktop"];
-      "text/x-git-config" = ["nvim.desktop"];
-      "text/x-hg-config" = ["nvim.desktop"];
-      "text/x-svn-config" = ["nvim.desktop"];
+      "text/x-patch" = ["editor.desktop"];
+      "text/x-git-config" = ["editor.desktop"];
+      "text/x-hg-config" = ["editor.desktop"];
+      "text/x-svn-config" = ["editor.desktop"];
       
       # DevOps & Infrastructure
-      "application/x-docker" = ["nvim.desktop"];
-      "text/x-dockerfile" = ["nvim.desktop"];
-      "application/x-terraform" = ["nvim.desktop"];
-      "application/x-ansible" = ["nvim.desktop"];
-      "application/x-vagrant-vagrantfile" = ["nvim.desktop"];
-      "application/x-jenkins" = ["nvim.desktop"];
-      "application/vnd.kubernetes.helm.chart" = ["nvim.desktop"];
-      "text/x-nginx-conf" = ["nvim.desktop"];
-      "text/x-apache-conf" = ["nvim.desktop"];
+      "application/x-docker" = ["editor.desktop"];
+      "text/x-dockerfile" = ["editor.desktop"];
+      "application/x-terraform" = ["editor.desktop"];
+      "application/x-ansible" = ["editor.desktop"];
+      "application/x-vagrant-vagrantfile" = ["editor.desktop"];
+      "application/x-jenkins" = ["editor.desktop"];
+      "application/vnd.kubernetes.helm.chart" = ["editor.desktop"];
+      "text/x-nginx-conf" = ["editor.desktop"];
+      "text/x-apache-conf" = ["editor.desktop"];
       
       # Mobile Development
-      "application/x-kotlin" = ["nvim.desktop"];
-      "text/x-kotlin" = ["nvim.desktop"];
-      "application/x-swift" = ["nvim.desktop"];
-      "text/x-swift" = ["nvim.desktop"];
-      "application/x-objective-c" = ["nvim.desktop"];
-      "text/x-objective-c" = ["nvim.desktop"];
+      "application/x-kotlin" = ["editor.desktop"];
+      "text/x-kotlin" = ["editor.desktop"];
+      "application/x-swift" = ["editor.desktop"];
+      "text/x-swift" = ["editor.desktop"];
+      "application/x-objective-c" = ["editor.desktop"];
+      "text/x-objective-c" = ["editor.desktop"];
       
       # Game Development
-      "application/x-godot-resource" = ["nvim.desktop"];
-      "application/x-unity3d-scene" = ["nvim.desktop"];
-      "application/x-unreal-blueprint" = ["nvim.desktop"];
+      "application/x-godot-resource" = ["editor.desktop"];
+      "application/x-unity3d-scene" = ["editor.desktop"];
+      "application/x-unreal-blueprint" = ["editor.desktop"];
       
       # Special formats
-      "application/x-ipynb+json" = ["nvim.desktop"];  # Jupyter notebooks
-      "application/vnd.groove-tool-template" = ["nvim.desktop"];  # Template files
-      "application/x-kicad-pcb" = ["nvim.desktop"];  # KiCad PCB
-      "application/x-kicad-schematic" = ["nvim.desktop"];  # KiCad Schematic
+      "application/x-ipynb+json" = ["editor.desktop"];  # Jupyter notebooks
+      "application/vnd.groove-tool-template" = ["editor.desktop"];  # Template files
+      "application/x-kicad-pcb" = ["editor.desktop"];  # KiCad PCB
+      "application/x-kicad-schematic" = ["editor.desktop"];  # KiCad Schematic
       
       # Nix-specific
-      "text/x-nix" = ["nvim.desktop"];
-      "application/x-nix-package" = ["nvim.desktop"];
+      "text/x-nix" = ["editor.desktop"];
+      "application/x-nix-package" = ["editor.desktop"];
       
       # Logs and debugging
-      "text/x-log" = ["nvim.desktop"];
-      "application/x-coredump" = ["nvim.desktop"];
+      "text/x-log" = ["editor.desktop"];
+      "application/x-coredump" = ["editor.desktop"];
       
       # Any other text-based format
-      "text/x-generic" = ["nvim.desktop"];
-      "application/octet-stream" = ["nvim.desktop"]; # Fallback for unknown binary files
+      "text/x-generic" = ["editor.desktop"];
+      "application/octet-stream" = ["editor.desktop"]; # Fallback for unknown binary files
     };
   };
 }

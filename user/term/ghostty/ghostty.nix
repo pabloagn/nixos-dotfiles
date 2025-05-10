@@ -1,33 +1,26 @@
 # ----------------------------------------------------------------------
-# Route:............/user/term/emulators.nix
+# Route:............/user/term/ghostty/ghostty.nix
 # Type:.............Module
 # Created by:.......Pablo Aguirre
 # ----------------------------------------------------------------------
 
 { config, pkgs, ... }:
 
-# Configuration definition
 {
-  # ------------------------------------------
-  # Module imports
-  # ------------------------------------------
-  imports = [
-    ./foot/foot.nix
-    ./lf/lf.nix
-    ./yazi/yazi.nix
-    ./kitty/kitty.nix
-    ./ghostty/ghostty.nix
-    ./starship/starship.nix
-    ];
-
   # ------------------------------------------
   # Packages
   # ------------------------------------------
   home.packages = with pkgs; [
-    ueberzugpp
+    ghostty
   ];
+
 
   # ------------------------------------------
   # Program Options
   # ------------------------------------------
+
+  # ------------------------------------------
+  # Configuration Files
+  # ------------------------------------------
+
 }
