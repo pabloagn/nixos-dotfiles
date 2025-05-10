@@ -45,9 +45,6 @@
     ./user/productivity/general.nix
     ./user/productivity/mail.nix
 
-    # Nix
-    ./user/nix/nix_development.nix
-
     # Term
     ./user/term/emulators.nix
     ./user/term/shells.nix
