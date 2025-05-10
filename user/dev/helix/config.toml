@@ -1,6 +1,6 @@
 # config.toml
 
-theme = "tokyonight_storm" # Or your custom theme name
+theme = "tokyonight" # Or your custom theme name
 
 [editor]
 line-number = "relative"    # Shows relative line numbers, absolute in insert/unfocused
