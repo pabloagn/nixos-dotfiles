@@ -12,6 +12,7 @@
   # ------------------------------------------
   imports = [
     ./nvim/nvim.nix
+    ./helix/helix.nix
     ./emacs/emacs.nix
     ./mousepad/mousepad.nix
     ];
