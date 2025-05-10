@@ -1,0 +1,69 @@
+# config.toml
+
+theme = "tokyonight_storm" # Or your custom theme name
+
+[editor]
+line-number = "relative"    # Shows relative line numbers, absolute in insert/unfocused
+mouse = true                # Enable mouse support (default is true)
+# default-yank-register = "\"" # Default is fine
+# middle-click-paste = true    # Default is true
+# scroll-lines = 3             # Default is 3
+scrolloff = 8               # Keep 8 lines visible above/below cursor when scrolling
+cursorline = true           # Highlight the cursor line
+# cursorcolumn = false      # Set to true if you want to highlight cursor column
+auto-completion = true      # Enable completion popup (default)
+auto-format = true          # Format on save (default)
+auto-info = true            # Display info boxes (like hover) automatically (default)
+idle-timeout = 250          # Time in ms before idle timers (like auto-info) trigger (Neovim was 250/300)
+completion-trigger-len = 1  # Trigger completion after 1 character (Neovim default is often 1 or 2)
+# true-color = true         # Set if auto-detection fails, usually not needed
+# undercurl = true          # Set if auto-detection fails, usually not needed
+rulers = [80, 100]          # Display vertical rulers at columns 80 and 100
+bufferline = "always"       # Show open buffers at the top: "always", "never", or "multiple" (Neovim laststatus=3)
+insert-final-newline = true # Ensure files end with a newline (good practice)
+popup-border = "all"        # Draw borders around popups and menus
+indent-heuristic = "hybrid" # How indentation is computed (hybrid is smart, default)
+
+# For clipboard integration. Helix usually auto-detects well.
+# If you have issues, you might need to specify one.
+# On Linux with X11: clipboard-provider = "x-clip" or "x-sel"
+clipboard-provider = "wayland"
+# On macOS: clipboard-provider = "pasteboard" (default)
+# On Windows: clipboard-provider = "windows" (default)
+# If using wl-clipboard as in your nvim config, "wayland" should pick it up if available.
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false              # Show hidden files in file picker (default is true, means hidden files are ignored)
+git-ignore = true           # Respect .gitignore (default)
+
+[editor.indent-guides]
+render = true
+character = "▏" # A more subtle character for indent guides
+# skip-levels = 1 # If you want to skip the first level of indentation
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
+center = ["version-control"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+# mode.normal = "NOR" # Default is "NOR"
+# mode.insert = "INS" # Default is "INS"
+# mode.select = "SEL" # Default is "SEL"
+
+# Smart tab behavior (like Neovim's smarttab)
+[editor.smart-tab]
+enable = true # Default
+
+# More detailed whitespace rendering if desired (default is "none")
+# [editor.whitespace.render]
+# space = "none" # "all" or "none"
+# tab = "all"
+# newline = "none"
+
+# [editor.whitespace.characters]
+# tab = "→"
+# space = "·"

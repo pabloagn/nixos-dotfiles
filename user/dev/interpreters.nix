@@ -11,10 +11,11 @@
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
+
+    # Interpreters
+    # -----------------------------
     go
-    haskell-language-server
     julia-lts
-    metals
     nodejs_20
     python310
     python310Packages.pip
@@ -26,11 +27,43 @@
     rustc
     rustup
     scala_3
-    # The full TexLive scheme (~5GB)
     texlive.combined.scheme-full
-    # The medium TexLive scheme (<5GB)
-    # texlive.combined.scheme-medium
-    #zulu
+
+    # Nix
+    # -----------------------------
+    cachix
+    nil
+    nix-info
+    nixpkgs-fmt
+    sbomnix
+
+    # Language Servers
+    # -----------------------------
+    haskell-language-server
+    metals
+    rust-analyzer
+    go-tools
+    pyright
+    texlab
+    lua-language-server
+    taplo-cli
+    nodePackages.yaml-language-server
+    nodePackages.typescript-language-server
+    nodePackages.typescript
+    vscode-langservers-extracted
+    nodePackages."@tailwindcss/language-server"
+    bash-language-server
+    shellcheck
+
+    # Formatters
+    # -----------------------------
+    goimports-reviser
+    # gofumpt
+    ruff
+    nodePackages.prettier
+    stylua
+    shfmt
+
   ];
 
 }
