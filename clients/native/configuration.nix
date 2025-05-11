@@ -35,7 +35,7 @@
     config = {
       my.systemHostname = config.networking.hostName;
       my.ssh.githubPersonalKeyPath = config.sops.secrets."ssh_github_personal_private_key_content".path;
-      my.ssh.githubAcademicKeyPath = config.sops.secrets."ssh_github_academic_private_key_content".path;
+      # my.ssh.githubAcademicKeyPath = config.sops.secrets."ssh_github_academic_private_key_content".path;
     };
   };
 

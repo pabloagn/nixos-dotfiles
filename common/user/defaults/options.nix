@@ -53,19 +53,19 @@ in
     };
     
     ssh = {
-      githubPersonalKeyPath = lib.mkOption {
+      githubWindowsKeyPath = lib.mkOption {
         type = lib.types.nullOr lib.types.str;
-        default = null;
+        # default = null;
         description = "Absolute path to the decrypted personal GitHub SSH private key file.";
         readOnly = true;
         };
 
-      githubAcademicKeyPath = lib.mkOption {
-        type = lib.types.nullOr lib.types.str;
-        default = null;
-        description = "Absolute path to the decrypted academic GitHub SSH private key file.";
-        readOnly = true;
-        };
+      # githubAcademicKeyPath = lib.mkOption {
+        # type = lib.types.nullOr lib.types.str;
+        # default = null;
+        # description = "Absolute path to the decrypted academic GitHub SSH private key file.";
+        # readOnly = true;
+        # };
       };
   };
 }
