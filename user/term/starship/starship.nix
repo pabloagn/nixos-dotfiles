@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# Route:...........././user/term/starship/starship.nix
+# Route:............/user/term/starship/starship.nix
 # Type:.............Module
 # Created by:.......Pablo Aguirre
 # ----------------------------------------------------------------------

@@ -13,7 +13,7 @@
 
     # Defaults (Priorities)
     # ---------------------------------------------------------
-    # Note: Environment variables needs to go before anything else, since we use vars for some entries.
+    # NOTE: Environment variables needs to go before anything else, since we use vars for some entries.
     ./user/defaults/environment-variables.nix
     
     # Defaults (includes MIME types, default apps & environment variables)

@@ -1,21 +1,39 @@
-# vim: ft=toml
+# helix: ft=toml
 
-# General Config
+# General
 # ---------------------------------------
 clipboard-read = allow
 clipboard-write = allow
 window-padding-x = 20
-window-padding-y = 20
+window-padding-y = 10
 window-padding-balance = true
 background-opacity = 0.9
 background-blur = 20
-
-
 cursor-style = bar
 cursor-style-blink = false
-font-family = JetBrains Mono
+resize-overlay = never
+mouse-hide-while-typing = true
+link-url = true
+scrollback-limit = 1000000000
+
+# Font
+# ---------------------------------------
+font-family = "JetBrainsMono"
+# font-family = "JetBrains Mono"
+# font-family = "IosevkaTerm NF"
+# font-family = "FiraCode Nerd Font Mono Med"
+# font-family = "JuliaMono"
+
+font-feature = "calt" "liga" "dlig" "ss01" "ss02" "ss03" "ss04" "ss05"
+
+# Performance
+# ---------------------------------------
 linux-cgroup-memory-limit = 0
 
+# Theme
+# ---------------------------------------
+
+# Predefined Themes
 # theme = tokyonight_night
 # theme = aura
 # theme = blazer
@@ -23,10 +41,6 @@ linux-cgroup-memory-limit = 0
 # theme = Guezwhoz
 # theme = iceberg-dark
 # theme = lovelace
-
-
-# Theme
-# ---------------------------------------
 
 # Basic colors
 background = "#080D0F"

@@ -197,3 +197,7 @@ indent = { tab-width = 2, unit = "  " }
 name = "ini"
 indent = { tab-width = 2, unit = "  " }
 
+# VSCode workspace files
+[[file-type]]
+name = "json"
+pattern = { suffix = ".code-workspace" }
