@@ -70,11 +70,29 @@
         disabled = false;
       };
 
+
+      # Git status customization
+      git_status = {
+        format = "([\\[$all_status$ahead_behind\\]]($style) )";
+        # style = "bold blue";
+        conflicted = "=";
+        ahead = "↑";
+        behind = "↓";
+        diverged = "↕";
+        untracked = "?";
+        stashed = "$";
+        modified = "!";
+        staged = "+";
+        renamed = "»";
+        deleted = "x";
+      };
+
       # Cloud formatting
       gcloud.format = "on [$symbol$active(/$project)(\\($region\\))]($style)";
       aws.format = "on [$symbol$profile(\\($region\\))]($style)";
-
       aws.symbol = " ";
+
+      # Symbols
       conda.symbol = " ";
       dart.symbol = " ";
       directory.read_only = " ";

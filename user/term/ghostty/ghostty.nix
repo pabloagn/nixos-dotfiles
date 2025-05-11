@@ -22,5 +22,7 @@
   # ------------------------------------------
   # Configuration Files
   # ------------------------------------------
-
+  xdg.configFile."ghostty/config" = {
+		  source = ./config;
+	 };
 }
