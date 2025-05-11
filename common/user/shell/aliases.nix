@@ -57,7 +57,7 @@ in
 
   # NixOS (nixos)
   nh = "z $DOTFILES && home-manager switch --flake .#${config.home.username}"; # Target specific user
-  ns = "z $DOTFILES && sudo nixos-rebuild switch --flake .#${config.networking.hostName}"; # Target specific host
+  #ns = "z $DOTFILES && sudo nixos-rebuild switch --flake .#${config.networking.hostName}"; # Target specific host
 
   # VS Code (code)
   code = "code --disable-gpu 2>/dev/null";
@@ -71,3 +71,4 @@ in
   # win-explorer = lib.mkIf wslConfig "explorer.exe .";
   # open-native-gui = lib.mkIf (!wslConfig) "some-native-gui-tool";
 }
+

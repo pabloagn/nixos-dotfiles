@@ -8,7 +8,7 @@
 
 let
   aliasesSet = import ../aliases.nix { inherit lib config pkgs; };
-  functionsSet = import ../functions.nix { inherit lib config pkgs; };
+  functions = import ../functions.nix;
 in
 {
   home.packages = with pkgs; [
@@ -17,7 +17,7 @@ in
 
   programs.zsh = {
     enable = true;
-    enableLoginShell = true;
+#    enableLoginShell = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = aliasesSet;
@@ -54,8 +54,7 @@ in
 
       setopt autocd
 
-      ${functionsSet.yy}
-      ${functionsSet.findpkg}
+      ${functions.yy}
     '';
   };
 }

@@ -24,6 +24,8 @@
       # Use the preferred editor from your custom option
       preferredEditorCmd = config.my.preferredEditor;
 
+      # systemHostname = config.nixcfg.networking.hostName;
+
     in
     {
       # XDG Vars to Session Vars
@@ -59,18 +61,18 @@
       DOTSCRIPTS = "${dotfiles}/scripts";
       DOT_COMMON_SYSTEM = "${dotfiles}/common/system";
       DOT_COMMON_USER   = "${dotfiles}/common/user";
-      DOT_HOST_SYSTEM   = "${dotfiles}/clients/${config.networking.hostName}/system";
-      DOT_HOST_USER     = "${dotfiles}/clients/${config.networking.hostName}/user";
+      #DOT_HOST_SYSTEM   = "${dotfiles}/clients/${systemHostname}/system";
+      #DOT_HOST_USER     = "${dotfiles}/clients/${systemHostname}/user";
 
       # Paths to *your source files* within the dotfiles repo for editing aliases:
-      DOT_HOST_CONFIGURATION_SRC = "${dotfiles}/clients/${config.networking.hostName}/configuration.nix";
-      DOT_HOST_HOME_SRC = "${dotfiles}/clients/${config.networking.hostName}/home.nix";
+      #DOT_HOST_CONFIGURATION_SRC = "${dotfiles}/clients/${systemHostname}/configuration.nix";
+      #DOT_HOST_HOME_SRC = "${dotfiles}/clients/${systemHostname}/home.nix";
       DOT_COMMON_ALIASES_SRC = "${dotfiles}/common/user/term/aliases.nix";
       DOT_COMMON_ENVVARS_SRC = "${dotfiles}/common/user/defaults/env.nix";
       DOTVARS = "${dotfiles}/common/user/defaults/env.nix";
       DOTALIASES = "${dotfiles}/common/user/term/aliases.nix";
-      DOTCONFIG = "${dotfiles}/clients/${config.networking.hostName}/configuration.nix";
-      DOTHOME = "${dotfiles}/clients/${config.networking.hostName}/home.nix";
+      #DOTCONFIG = "${dotfiles}/clients/${systemHostname}/configuration.nix";
+      #DOTHOME = "${dotfiles}/clients/${systemHostname}/home.nix";
 
 
       # Path to your custom desktop application logos

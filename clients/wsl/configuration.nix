@@ -4,10 +4,11 @@
 * Created by: Pablo Aguirre
 */
 
-{ pkgs, config, ... }:
+{ pkgs, config, lib, inputs, pkgs-unstable, self, wslConfig, ... }:
 
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
     ./system/index.nix
     ../../common/system/index.nix
   ];
@@ -18,7 +19,7 @@
   wsl = {
     enable = true;
     defaultUser = "pabloagn";
-    nativeSystemd = true;
+#    nativeSystemd = true;
   };
 
   # ------------------------------------------
@@ -46,5 +47,5 @@
   # ------------------------------------------
   # State Version (Keep as is)
   # ------------------------------------------
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }

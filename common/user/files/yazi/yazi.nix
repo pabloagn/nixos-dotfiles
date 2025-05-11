@@ -4,7 +4,7 @@
 * Created by: Pablo Aguirre
 */
 
-{ config, pkgs, pkgs-unstable, ... }:
+{ lib, config, pkgs, pkgs-unstable, inputs, self, wslConfig, ... }:
 
 # Define the markdown preview script using writeShellScript
 let
@@ -35,8 +35,8 @@ let
 in
 {
   home.packages = with pkgs; [
-    # yazi # From stable pkgs defined in flake
-    pkgs-unstable.yazi # Or explicitly use unstable if needed
+    yazi # From stable pkgs defined in flake
+    #pkgs-unstable.yazi # Or explicitly use unstable if needed
 
 
   ];

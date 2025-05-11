@@ -4,7 +4,7 @@
 * Created by: Pablo Aguirre
 */
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, pkgs-unstable, self, inputs, wslConfig, ... }:
 
 {
   imports = [
