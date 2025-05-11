@@ -1,11 +1,11 @@
-# ---------------------------------------------------------
-# Route:............/flake.nix
-# Type:.............Flake
-# Created by:.......Pablo Aguirre
-# ---------------------------------------------------------
+/*
+* Route: /flake.nix
+* Type: Flake
+* Created by: Pablo Aguirre
+*/
 
 {
-  description = "NixOS configuration for native and WSL2 systems";
+  description = "Multiplatform NixOS configuration (native and WSL2)";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
@@ -27,34 +27,34 @@
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in {
       nixosConfigurations = {
-        # Native NixOS configuration
+        # Native NixOS system configuration
         # ------------------------------------------
         nixos = lib.nixosSystem {
           inherit system;
           modules = [
-            ./configuration.nix
+            ./clients/native/configuration.nix
           ];
           specialArgs = {
-            inherit pkgs-unstable inputs;
+            inherit pkgs-unstable inputs self;
           };
         };
 
-        # WSL2 configuration
+        # WSL2 NixOS system configuration
         # ------------------------------------------
         nixos-wsl = lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/wsl/configuration.nix
+            ./clients/wsl/configuration.nix
           ];
           specialArgs = {
-            inherit pkgs-unstable inputs;
-            wslConfig = true;  # Flag to conditionally enable/disable features
+            inherit pkgs-unstable inputs self;
+            wslConfig = true;
           };
         };
       };
 
       homeConfigurations = {
-        # Original home-manager configuration
+        # Native NixOS user configuration
         # ------------------------------------------
         pabloagn = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
@@ -63,13 +63,13 @@
               allowUnfree = true;
             };
           };
-          modules = [ ./home.nix ];
+          modules = [ ./clients/native/home.nix ];
           extraSpecialArgs = {
-            inherit pkgs-unstable inputs;
+            inherit pkgs-unstable inputs self;
           };
         };
 
-        # WSL2 home-manager configuration
+        # WSL2 NixOS user configuration
         # ------------------------------------------
         pabloagn-wsl = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
@@ -78,16 +78,12 @@
               allowUnfree = true;
             };
           };
-          modules = [ ./hosts/wsl/home.nix ];
+          modules = [ ./clients/wsl/home.nix ];
           extraSpecialArgs = {
-            inherit pkgs-unstable inputs;
-            wslConfig = true;  # Flag to conditionally enable/disable features
+            inherit pkgs-unstable inputs self;
+            wslConfig = true;
           };
         };
       };
     };
 }
-
-# ---------------------------------------------------------
-# End of file
-# ---------------------------------------------------------

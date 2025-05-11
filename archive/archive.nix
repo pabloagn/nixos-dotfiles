@@ -16,7 +16,7 @@
     # neofetch # Discontinued, using disfetch instead
   ];
 
-  # Observations
+  # Notes
   # ------------------------------------------
   # - This is the package cementery, where all packages go to die.
   # - Any unmaintained package with potential side effects to my system is dumped here.

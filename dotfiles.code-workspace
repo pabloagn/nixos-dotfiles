@@ -3,17 +3,21 @@
 {
   "folders": [
     {
-      "path": ".",
       "name": "NixOS Dotfiles",
+      "path": "."
     },
     {
-      "path": "hosts/wsl",
-      "name": "WSL2",
+      "name": "Clients | WSL2",
+      "path": "clients/wsl"
     },
     {
-      "path": "hosts/native",
-      "name": "Native",
+      "name": "Clients | Native",
+      "path": "clients/native"
     },
+    {
+      "name": "Common",
+      "path": "common"
+    }
   ],
   "settings": {
     // --- Editor Behavior & Style ---

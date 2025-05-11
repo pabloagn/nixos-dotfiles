@@ -20,5 +20,6 @@ selected=$(echo "$aliases" | rofi -dmenu -i -p "Aliases")
 
 # Copy the selected alias to clipboard
 if [ -n "$selected" ]; then
+    # shellcheck disable=SC2259
     echo "$selected" | cut -f2 | wc -c | xargs -I {} head -c -{} <<< "$selected" | cut -f2 | xclip -selection clipboard
 fi
