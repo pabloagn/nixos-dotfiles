@@ -12,5 +12,6 @@
     ./base/index.nix
     ./interface/index.nix
     ./term/index.nix
+    ./auth/index.nix
   ];
 }
