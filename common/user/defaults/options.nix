@@ -44,6 +44,28 @@ in
       description = "The name of the preferred shell. Must be one of: ${lib.concatStringsSep ", " allowedShells}. The actual package will be pkgs.<name>.";
       example = "fish";
     };
+    
+    systemHostname = lib.mkOption {
+      type = lib.types.str;
+      default = "unknown-host";
+      description = "The networking.hostName of the NixOS system.";
+      readOnly = true;
+    };
+    
+    ssh = {
+      githubPersonalKeyPath = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = null;
+        description = "Absolute path to the decrypted personal GitHub SSH private key file.";
+        readOnly = true;
+        };
 
+      githubAcademicKeyPath = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = null;
+        description = "Absolute path to the decrypted academic GitHub SSH private key file.";
+        readOnly = true;
+        };
+      };
   };
 }

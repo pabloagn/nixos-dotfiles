@@ -10,5 +10,6 @@
   imports = [
     # ./secrets.nix
     ./auth.nix
+    ./sops.nix
   ];
 }

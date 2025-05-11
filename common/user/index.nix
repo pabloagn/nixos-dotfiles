@@ -16,7 +16,5 @@
     ./editors/index.nix
     ./interpreters/index.nix
     ./containers/index.nix
-    ./auth/index.nix
-
   ];
 }

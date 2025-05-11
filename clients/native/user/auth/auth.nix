@@ -11,13 +11,10 @@
   # Requirements
   # ------------------------------------------
   home.packages = with pkgs; [
-    age
     # pass Keychain & GnuPG: Required by Proton Bridge
     pass
     gnupg
-    # keychain
     gnome-keyring
-    sops
   ];
   # ------------------------------------------
   # SSH Per-Host Settings using matchBlocks
