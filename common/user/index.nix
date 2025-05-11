@@ -13,5 +13,10 @@
     ./files/index.nix
     ./shell/index.nix
     ./utils/index.nix
+    ./editors/index.nix
+    ./interpreters/index.nix
+    ./containers/index.nix
+    ./auth/index.nix
+
   ];
 }

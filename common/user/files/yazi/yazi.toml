@@ -13,7 +13,7 @@
 ratio          = [ 1, 4, 3 ]
 sort_by        = "alphabetical" # Options: alphabetical, natural, mtime, ctime, atime, size, none
 sort_sensitive = false
-sort_reverse 	 = false
+sort_reverse   = false
 sort_dir_first = true
 sort_translit  = false         # Use transliteration for sorting (e.g., treat 'é' like 'e')
 linemode       = "none"        # Options: "none", "size", "permissions", "collapse" (icons only)
@@ -150,7 +150,8 @@ cd_offset = [ 0, 2, 50, 3 ] # [x, y, width, height] relative to origin
 
 # create
 # -- FIX: Changed from string to array[2] --
-create_title  = [ "Create:", "Create:" ]
+create_title = "Create:"
+#create_title  = [ "Create:", "Create:" ]
 create_origin = "top-center"
 create_offset = [ 0, 2, 50, 3 ]
 
