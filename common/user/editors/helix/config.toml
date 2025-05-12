@@ -33,7 +33,7 @@ indent-heuristic = "hybrid" # How indentation is computed (hybrid is smart, defa
 # On macOS: clipboard-provider = "pasteboard" (default)
 # On Windows: clipboard-provider = "windows" (default)
 # clipboard-provider = "wayland"
-clipboard-provider = "windows"
+# clipboard-provider = "windows"
 
 # Key Remappings
 # ---------------------------------------------------

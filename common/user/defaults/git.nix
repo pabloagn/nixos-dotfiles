@@ -12,34 +12,16 @@
       # "core.editor" = config.my.preferredEditor; # Let EDITOR env var handle this or set explicitly
       # "core.pager" = "delta"; # If you install and prefer git-delta
     };
-
-    # Optional: GPG Signing for commits
-    # signing = {
-    #   signByDefault = true; # Or false
-    #   key = "YOUR_GPG_KEY_ID_OR_EMAIL"; # Your GPG key ID
-    # };
-
-    # Optional: Ignores file - useful for global ignores like .DS_Store, editor temp files
-    # ignores = [
-    #   ".DS_Store"
-    #   "*.swp"
-    #   "*.swo"
-    #   "*~"
-    #   "tags" # If you use ctags
-    #   ".direnv/"
-    #   "result" # Common for Nix builds
-    # ];
+  };
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+        identityFile = "~/.ssh/github_windows";
+      };
+    };
   };
 
-  # Example: If you use GitHub CLI (gh)
-  # home.packages = with pkgs; [
-  #   gh
-  # ];
-  # programs.gh = {
-  #   enable = true;
-  #   settings = {
-  #     # git_protocol = "ssh"; # Prefer SSH for gh operations
-  #     # editor = config.my.preferredEditor;
-  #   };
-  # };
-}
+  services.ssh-agent.enable = true;
+}    
