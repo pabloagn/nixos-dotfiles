@@ -28,7 +28,7 @@
     imports = [ ./home.nix ];
     config = {
       my.systemHostname = config.networking.hostName;
-      my.ssh.githubWindowsKeyPath = config.sops.secrets."ssh_github_windows_private_key_content".path;
+      my.ssh.githubPersonalKeyPath = config.sops.secrets."ssh_github_personal".path;
       # my.ssh.githubAcademicKeyPath = config.sops.secrets."ssh_github_academic_private_key_content".path;
     };
   };

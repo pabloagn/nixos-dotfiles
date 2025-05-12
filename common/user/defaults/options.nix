@@ -53,9 +53,9 @@ in
     };
     
     ssh = {
-      githubWindowsKeyPath = lib.mkOption {
+      githubPersonalKeyPath = lib.mkOption {
         type = lib.types.nullOr lib.types.str;
-        # default = null;
+        default = null;
         description = "Absolute path to the decrypted personal GitHub SSH private key file.";
         readOnly = true;
         };

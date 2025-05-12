@@ -10,5 +10,6 @@
   imports = [
     ./env.nix
     ./options.nix
+    ./git.nix
   ];
 }
