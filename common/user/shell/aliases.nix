@@ -1,6 +1,6 @@
 /*
 * Route: /common/user/shell/aliases.nix
-* Type: Module
+* Type: Utils
 * Created by: Pablo Aguirre
 */
 
@@ -30,6 +30,8 @@ in
   neofetch = "disfetch";
   nf = "disfetch";
   grep = "rg";
+  # See functions.nix
+  tree = "etree";
 
   # Directory changing (go)
   gc = "z .config";
@@ -71,4 +73,3 @@ in
   # win-explorer = lib.mkIf wslConfig "explorer.exe .";
   # open-native-gui = lib.mkIf (!wslConfig) "some-native-gui-tool";
 }
-

@@ -11,6 +11,8 @@
     acpi
     bc
     binutils
+    # An even better tree
+    broot
     bottom
     cowsay
     desktop-file-utils
@@ -18,6 +20,7 @@
     disfetch
     dmidecode
     entr
+    # A better tree
     eza
     fd
     ffmpegthumbnailer

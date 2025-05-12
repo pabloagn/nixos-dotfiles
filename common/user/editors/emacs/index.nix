@@ -1,5 +1,5 @@
 /*
-* Route: /clients/native/user/dev/editors/emacs/index.nix
+* Route: /common/user/editors/emacs/index.nix
 * Type: Index
 * Created by: Pablo Aguirre
 */

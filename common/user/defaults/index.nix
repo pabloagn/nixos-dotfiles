@@ -4,12 +4,12 @@
 * Created by: Pablo Aguirre
 */
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, constants, paths, ... }:
 
 {
   imports = [
-    ./env.nix
     ./options.nix
+    ./env.nix
     ./git.nix
   ];
 }

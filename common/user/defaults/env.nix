@@ -4,16 +4,25 @@
 * Created by: Pablo Aguirre
 */
 
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, constants, paths, ... }:
 
 {
   home.sessionVariables =
     let
-      # Use the home directory configured by Home Manager itself.
-      # This makes the module portable to other users/systems.
-      homeDir = config.home.homeDirectory;
+      dotfilesRuntimeDir = paths.base.dotfiles;
+      dotfilesScriptsDir = paths.base.scripts;
 
       # Define dotfiles var based on homeDir
+
+
+
+
+
+
+
+
+
+
       dotfiles = "${homeDir}/.dotfiles";
       binDir = "${homeDir}/.local/bin";
       cacheDir = "${homeDir}/.cache";     # Default: $XDG_CACHE_HOME or $HOME/.cache

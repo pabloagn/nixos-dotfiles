@@ -1,15 +1,12 @@
-# ---------------------------------------------------------
-# Route:............/user/dev/interpreters.nix
-# Type:.............Module
-# Created by:.......Pablo Aguirre
-# ---------------------------------------------------------
+/*
+* Route:............/common/user/interpreters/index.nix
+* Type:.............Module
+* Created by:.......Pablo Aguirre
+*/
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  # ------------------------------------------
-  # Requirements
-  # ------------------------------------------
   home.packages = with pkgs; [
 
     # Interpreters
@@ -20,7 +17,6 @@
     julia-lts
     nodejs_20
     python310
-    rustc
     rustup
     scala_3
     texlive.combined.scheme-full
@@ -37,8 +33,7 @@
     # -----------------------------
     haskell-language-server
     metals
-    # rust-analyzer
-    go-tools
+    gopls
     pyright
     texlab
     lua-language-server
@@ -50,6 +45,8 @@
     nodePackages."@tailwindcss/language-server"
     bash-language-server
     shellcheck
+    jdk # Java Development Kit: Latest LTS version
+    #jdk23 # Java Development Kit: n-1 version (@May2025)
 
     # Formatters
     # -----------------------------
@@ -59,6 +56,6 @@
     nodePackages.prettier
     stylua
     shfmt
+    eslint
   ];
-
 }

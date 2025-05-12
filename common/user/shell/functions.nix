@@ -1,6 +1,6 @@
 /*
 * Route: /common/user/shell/functions.nix
-* Type: Module
+* Type: Utils
 * Created by: Pablo Aguirre
 */
 
@@ -14,6 +14,14 @@
         builtin cd -- "$cwd"
       fi
       rm -f -- "$tmp"
+    }
+  '';
+
+  # A better tree
+  etree = ''
+    function etree() {
+      local level="''${1:-1}"
+      eza --tree --all --level="''${level}" "''${@:2}"
     }
   '';
 

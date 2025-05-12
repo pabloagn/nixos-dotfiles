@@ -1,0 +1,191 @@
+/*
+* Route: /flake.nix
+* Type: Flake
+* Created by: Pablo Aguirre
+*/
+
+let
+  # Top level variables
+  # ------------------------------------------
+  nixOSVersion = "24.11";
+  description = "Multiplatform NixOS configuration (native and WSL2)";
+in
+
+{
+
+  # We're getting the project description passed
+  inherit description;
+
+  inputs = {
+
+    # Main channels
+    nixpkgs.url = "nixpkgs/nixos-${nixOSVersion}";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+
+    # WSL2
+    nixos-wsl.url = "github:nix-community/nixos-wsl";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Home Manager
+    home-manager.url = "github:nix-community/home-manager/release-${nixOSVersion}";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # SOPS
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Hyprland
+    hyprland.url = "github:hyprwm/hyprland";
+
+    # Rose Pine Hyprcursor
+    rose-pine-hyprcursor = {
+      url = "github:ndom91/rose-pine-hyprcursor";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprlang.follows = "hyprland/hyprlang"; # Yes, this is hyprlang, not hyprland
+    };
+  };
+
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+
+    let
+      # Nixpkgs vars
+      # ------------------------------------------
+      lib = nixpkgs.lib;
+
+      system = "x86_64-linux";
+
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+      };
+
+      constants = {
+
+        baseDirs = {
+          clients = "clients";
+          common = "common";
+          system = "system";
+          user = "user";
+          assets = "assets";
+          scripts = "scripts";
+          secrets = "secrets";
+        };
+
+        files = {
+          flake = "flake.nix";
+          systemConfig = "configuration.nix";
+          userConfig = "home.nix";
+          index = "index.nix";
+        };
+
+        clients = {
+
+          native = {
+            userID = "native";
+            userName = "pabloagn";
+            hostName = "nixos-native";
+          };
+
+          wsl = {
+            userID = "wsl";
+            userName = "pabloagn";
+            hostName = "nixos-wsl";
+          };
+        };
+      };
+
+      paths =
+        let
+          base = constants.baseDirs;
+          files = constants.files;
+          clients = constants.clients;
+
+        in
+        rec {
+          # Base dir
+          root = ./.;
+
+          # Common dirs
+          common = root + /${base.common};
+          commonAssets = common + /${base.assets};
+          commonSystem = common + /${base.system};
+          commonUser = common + /${base.user};
+
+          # Scripts dir
+          scripts = root + /${base.scripts};
+          secrets = root + /${base.secrets};
+
+          # Clients dirs
+          clientsBase = root + /${base.clients};
+
+          # Clients - Native
+          clientsNative = clientsBase + /${clients.native.id};
+          clientsNativeSystem = clientsNative + /${base.system};
+          clientsNativeUser = clientsNative + /${base.user};
+          clientsNativeSystemConfig = clientsNativeSystem + /${files.systemConfig};
+          clientsNativeUserConfig = clientsNativeUser + /${files.userConfig};
+
+          # Clients - WSL
+          clientsWsl = clientsBase + /${clients.wsl.id};
+          clientsWslSystem = clientsWsl + /${base.system};
+          clientsWslUser = clientsWsl + /${base.user};
+          clientsWslSystemConfig = clientsWslSystem + /${files.systemConfig};
+          clientsWslUserConfig = clientsWslUser + /${files.userConfig};
+        };
+
+      commonSpecialArgs = {
+        inherit pkgs pkgs-unstable inputs self constants paths nixOSVersion;
+      };
+
+    in
+
+    {
+      nixosConfigurations = {
+        # Client: Native
+        # ------------------------------------------
+        "${constants.clients.native.hostName}" = lib.nixosSystem {
+          inherit system;
+          modules = [ paths.clientsNativeSystemConfig ];
+          specialArgs = commonSpecialArgs;
+        };
+
+        # Client: WSL2
+        # ------------------------------------------
+        "${constants.clients.wsl.hostName}" = lib.nixosSystem {
+          inherit system;
+          modules = [
+            inputs.nixos-wsl.nixosModules.wsl
+            paths.clientsWslSystemConfig
+          ];
+          specialArgs = commonSpecialArgs // {
+            wslConfig = true;
+          };
+        };
+      };
+
+      homeConfigurations = {
+        # Client: Native
+        # ------------------------------------------
+        "${constants.clients.native.userName}-${constants.clients.native.userID}" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ paths.clientsNativeUserConfig ];
+          extraSpecialArgs = commonSpecialArgs;
+        };
+
+        # Client: WSL2
+        # ------------------------------------------
+        "${constants.clients.wsl.userName}-${constants.clients.wsl.userID}" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ paths.clientsWslUserConfig ];
+          extraSpecialArgs = commonSpecialArgs // {
+            wslConfig = true;
+          };
+        };
+      };
+    };
+}

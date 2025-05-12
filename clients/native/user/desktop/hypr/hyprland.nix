@@ -1,55 +1,46 @@
-# ---------------------------------------------------------
-# Route:............/user/desktop/hypr/hyprland.nix
-# Type:.............Module
-# Created by:.......Pablo Aguirre
-# ---------------------------------------------------------
+/*
+* Route:............/clients/native/user/desktop/hypr/hyprland.nix
+* Type:.............Module
+* Created by:.......Pablo Aguirre
+*/
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+let
+
+  assetsDir = ../../../../../common/assets;
+  hyprModulesDir = ./modules;
+
+  # Destination Path -> Source Path
+  # Keys are the paths relative to ~/.config
+  # Values are the source paths relative to *this* nix file
+  hyprConfigFiles = {
+    "hypr/hyprland.conf" = ./hyprland.conf;
+    "hypr/modules/monitors.conf" = ./${hyprModulesDir}/monitors.conf;
+    "hypr/modules/keybinds.conf" = ./${hyprModulesDir}/keybinds.conf;
+    "hypr/modules/workspaces.conf" = ./${hyprModulesDir}/workspaces.conf;
+    "hypr/modules/window-rules.conf" = ./${hyprModulesDir}/window-rules.conf;
+    "hypr/modules/keyboard.conf" = ./${hyprModulesDir}/keyboard.conf;
+    "hypr/assets/sounds/sutter-play.ogg" = ./${assetsDir}/sounds/camera-shutter.ogg;
+    "hypr/hyprpaper.conf" = ./${assetsDir}/hyprpaper/hyprpaper.conf;
+  };
+
+in
 
 {
-  # ------------------------------------------
-  # Requirements
-  # ------------------------------------------
   home.packages = with pkgs; [
-    jq
     coreutils
     gawk
   ];
 
-  # ------------------------------------------
-  # Config Files
-  # ------------------------------------------
-  xdg.configFile."hypr/hyprland.conf" = { 
-    source = ./hyprland.conf; 
-  };
-  
-  # Module configurations
-  xdg.configFile."hypr/modules/monitors.conf" = { 
-    source = ./modules/monitors.conf; 
-  };
-  
-  xdg.configFile."hypr/modules/keybinds.conf" = { 
-    source = ./modules/keybinds.conf; 
-  };
-  
-  xdg.configFile."hypr/modules/workspaces.conf" = { 
-    source = ./modules/workspaces.conf; 
-  };
-  
-  xdg.configFile."hypr/modules/window-rules.conf" = { 
-    source = ./modules/window-rules.conf; 
-  };
-  
-  xdg.configFile."hypr/modules/keyboard.conf" = { 
-    source = ./modules/keyboard.conf; 
-  };
-  
-  # --- Assets & Hyprpaper Config ---
-  xdg.configFile."hypr/assets/sounds/sutter-play.ogg" = { 
-    source = ../../assets/sounds/camera-shutter.ogg; 
-  };
-  
-  xdg.configFile."hypr/hyprpaper.conf" = { 
-    source = ../hyprpaper/hyprpaper.conf; 
-  };
+
+  xdg.configFile = lib.mapAttrs'
+    (
+      destinationPath: sourcePath:
+        {
+          name = destinationPath;
+          value = { source = sourcePath; };
+        }
+    )
+    hyprConfigFiles;
 }

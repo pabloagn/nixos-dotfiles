@@ -4,34 +4,36 @@
 * Created by: Pablo Aguirre
 */
 
-{ pkgs, config, lib, inputs, pkgs-unstable, self, wslConfig, ... }:
+{ pkgs, config, lib, inputs, constants, paths, nixOSVersion, wslConfig, ... }:
 
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./system/index.nix
-    ../../common/system/index.nix
+    inputs.sops-nix.nixosModules.sops
+
+    (paths.clientsWslSystem + /${constants.files.index})
+    (paths.commonSystem + /${constants.files.index})
   ];
 
   wsl = {
-    enable = true;
-    defaultUser = "pabloagn";
+    enable = wslConfig;
+    defaultUser = constants.clients.wsl.userName;
   };
-  
-  networking.hostName = "nixos-wsl";
-  
-  nixpkgs.config.allowUnfree = true;
 
+  networking.hostName = constants.clients.wsl.hostName;
+
+  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  home-manager.users.pabloagn = {
-    imports = [ ./home.nix ];
+  home-manager.users."${constants.clients.wsl.userName}" = {
+    imports = [
+      paths.clientsWslUserConfig
+    ];
     config = {
       my.systemHostname = config.networking.hostName;
       my.ssh.githubPersonalKeyPath = config.sops.secrets."ssh_github_personal".path;
-      # my.ssh.githubAcademicKeyPath = config.sops.secrets."ssh_github_academic_private_key_content".path;
     };
   };
 
-  system.stateVersion = "24.11";
+  system.stateVersion = nixOSVersion;
 }

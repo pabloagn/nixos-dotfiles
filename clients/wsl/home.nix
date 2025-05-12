@@ -4,12 +4,12 @@
 * Created by: Pablo Aguirre
 */
 
-{ config, pkgs, inputs, lib, pkgs-unstable, self, wslConfig, ... }:
+{ config, pkgs, lib, inputs, constants, paths, nixOSVersion, wslConfig, ... }:
 
 {
   imports = [
-    ./user/index.nix
-    ../../common/user/index.nix
+    (paths.clientsWslUser + /${constants.files.index})
+    (paths.commonUser + /${constants.files.index})
   ];
 
   # User Options
@@ -21,21 +21,17 @@
     preferredShell = "zsh";
   };
 
-  # User & state
-  # ------------------------------------------
-  # USER & HOME variables are inherited from configuration.nix
-  home.username = "pabloagn";
-  home.homeDirectory = "/home/pabloagn";
-  home.stateVersion = "24.11";
+
+  home.username = constants.clients.wsl.userName;
+  home.homeDirectory = "/home/${constants.clients.wsl.userName}";
+  home.stateVersion = nixOSVersion;
 
   # Allow unfree packages
   # ------------------------------------------
   nixpkgs.config.allowUnfree = true;
 
   # Path
-  home.sessionPath = [
-    "~/.dotfiles"
-  ];
+  home.sessionPath = [ "${paths.base.dotfiles}/${paths.base.scripts}" ];
 
   # ------------------------------------------
   # Home files

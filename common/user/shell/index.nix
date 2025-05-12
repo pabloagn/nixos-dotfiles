@@ -1,6 +1,6 @@
 /*
 * Route: /common/user/shell/index.nix
-* Type: Module
+* Type: Index
 * Created by: Pablo Aguirre
 */
 

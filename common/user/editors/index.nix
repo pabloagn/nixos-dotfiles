@@ -1,29 +1,25 @@
-# ---------------------------------------------------------
-# Route:............/user/dev/editors.nix
-# Type:.............Module
-# Created by:.......Pablo Aguirre
-# ---------------------------------------------------------
+/*
+* Route:............/common/user/editors/index.nix
+* Type:.............Module
+* Created by:.......Pablo Aguirre
+*/
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  # ------------------------------------------
-  # Module imports
-  # ------------------------------------------
   imports = [
-    ./helix/helix.nix
-    ./nvim/nvim.nix
-    ./emacs/emacs.nix
-    ./mousepad/mousepad.nix
-    ];
-
-  # ------------------------------------------
-  # Requirements
-  # ------------------------------------------
-  home.packages = with pkgs; [
-    rstudio
-    vscode
-    # vscodium
-    code-cursor
+    ./cursor/index.nix
+    ./helix/index.nix
+    ./nvim/index.nix
+    ./emacs/index.nix
+    ./mousepad/index.nix
+    ./vscode/index.nix
+    # ./vscodium/index.nix
+    ./rstudio/index.nix
   ];
 }
+
+# NOTE
+# ------------------------------------------------------------
+# - VS Codium and VS Code clash. Do not attempt to install both.
+# ------------------------------------------------------------
