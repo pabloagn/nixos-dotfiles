@@ -13,5 +13,6 @@
     ./interface/index.nix
     ./term/index.nix
     ./auth/index.nix
+    ./nixld/index.nix
   ];
 }
