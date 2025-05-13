@@ -6,5 +6,3 @@ This directory contains configuration for Color Schemes.
 
 - palettes
 - schemes
-
-
