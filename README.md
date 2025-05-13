@@ -6,47 +6,107 @@
 
 ```text
 flake/
-├── flake.nix                      # Entry point, inputs and outputs
-├── flake.lock                     # Lockfile
-├── flakeModules/                  # Flake-parts modules
-│   ├── default.nix                # Re-exports all flake modules
-│   ├── devshells.nix              # Development shell configurations
-│   ├── nixos.nix                  # NixOS configurations
-│   └── devFlakes.nix              # Development environment flakes
-├── hosts/                         # Machine-specific configurations
-│   ├── common/                    # Shared across all hosts
-│   └── machine-name/              # One directory per machine
-├── modules/                       # NixOS system modules
-│   ├── core/                      # Core system configuration
-│   └── categories/                # Functional categories
-│       ├── development/           # Development tools
-│       ├── desktop/               # Desktop environment
-│       └── server/                # Server configuration
-├── users/                         # User definitions and permissions
-│   ├── default.nix                # Common user settings
-│   └── username.nix               # Per-user definitions
-├── home/                          # Home-manager configurations
-│   ├── profiles/                  # User role profiles
-│   └── modules/                   # Home configuration modules
-├── dev/                           # Development environments
-│   ├── flakes/                    # Project-specific dev flakes
-│   ├── shells/                    # Reusable development shells
-│   ├── linters/                   # Linter configurations
-│   └── tools/                     # Development tools
-├── assets/                        # Static assets
-│   ├── fonts/                     # Font files
-│   ├── images/                    # Image files
-│   ├── sounds/                    # Sound files
-│   └── themes/                    # Theme configurations
-├── scripts/                       # Shared scripts
-│   ├── utilities/                 # Utility scripts
-│   └── aliases/                   # Shell aliases
-├── env/                           # Environment variables
-│   ├── default.nix                # Common variables
-│   └── users/                     # User-specific variables
-├── secrets/                       # Encrypted secrets
-├── overlays/                      # Package overlays
-└── lib/                           # Helper Nix functions
+├── flake.nix                           # Entry point, inputs and outputs
+├── flake.lock                          # Lockfile
+├── flakeModules/                       # Flake-parts modules
+│   ├── default.nix                     # Re-exports all flake modules
+│   ├── devshells.nix                   # Development shell configurations
+│   ├── nixos.nix                       # NixOS configurations
+│   └── devFlakes.nix                   # Development environment flakes
+├── hosts/                              # Machine-specific configurations
+│   ├── common/                         # Shared across all hosts
+│   │   ├── default.nix                 # Entry point for common config
+│   │   └── networking.nix              # Common networking settings
+│   ├── wsl/                            # WSL2 configuration
+│   │   ├── default.nix                 # Main configuration 
+│   │   └── hardware-configuration.nix  # WSL2-specific hardware settings
+│   ├── native/                         # Native NixOS installation
+│   │   ├── default.nix                 # Main configuration
+│   │   └── hardware-configuration.nix  # Native hardware detection
+│   └── docker/                         # Docker container config
+│       ├── default.nix                 # Main configuration
+│       └── container-config.nix        # Container-specific settings
+├── modules/                            # NixOS system modules (flattened)
+│   ├── core/                           # Core system configuration
+│   │   ├── default.nix                 # Entry point for core modules
+│   │   ├── boot.nix                    # Boot configuration
+│   │   └── security.nix                # System security settings
+│   ├── desktop/                        # Desktop environment modules
+│   │   ├── default.nix                 # Entry point for desktop modules
+│   │   ├── fonts.nix                   # Font configuration (company fonts here)
+│   │   └── i3.nix                      # i3 window manager configuration
+│   ├── development/                    # Development tools modules
+│   │   ├── default.nix                 # Entry point for dev modules
+│   │   ├── languages/                  # Programming languages
+│   │   │   ├── default.nix             # Common language settings
+│   │   │   └── rust.nix                # Rust-specific settings
+│   │   └── tools/                      # Development tools
+│   │       ├── default.nix             # Common tools
+│   │       └── git.nix                 # Git configuration
+│   └── server/                         # Server configuration modules
+│       ├── default.nix                 # Entry point for server modules
+│       └── nginx.nix                   # Nginx configuration
+├── users/                              # User definitions and permissions
+│   ├── default.nix                     # Common user settings
+│   └── yourusername.nix                # Your user definition
+├── home/                               # Home-manager configurations
+│   ├── profiles/                       # User role profiles
+│   │   ├── default.nix                 # Common profile settings
+│   │   └── developer.nix               # Developer profile
+│   └── modules/                        # Home configuration modules
+│       ├── desktop/                    # Desktop app configurations
+│       │   ├── default.nix             # Entry point
+│       │   └── hyprland.nix            # Hyprland WM config
+│       └── development/                # Dev environment configs
+│           ├── default.nix             # Entry point
+│           └── vscode.nix              # VS Code configuration
+├── dev/                                # Development environments
+│   ├── flakes/                         # Project-specific dev flakes
+│   │   ├── web-stack/                  # Web development flake
+│   │   │   └── flake.nix               # Web stack flake definition
+│   │   └── data-science/               # Data science flake
+│   │       └── flake.nix               # Data science flake definition
+│   ├── shells/                         # Reusable development shells
+│   │   ├── default.nix                 # Common shell settings
+│   │   └── python.nix                  # Python development shell
+│   ├── linters/                        # Linter configurations
+│   │   ├── default.nix                 # Common linter settings
+│   │   └── eslint/                     # ESLint configuration
+│   │       ├── default.nix             # ESLint module
+│   │       └── .eslintrc.json          # ESLint rules
+│   └── tools/                          # Development tools
+│       ├── default.nix                 # Common tools
+│       └── formatter.nix               # Code formatter config
+├── assets/                             # Static assets (no nix files)
+│   ├── fonts/                          # Font files
+│   │   └── company-font.ttf            # Example company font
+│   ├── images/                         # Image files
+│   │   └── branding/                   # Company branding
+│   │       └── logo.png                # Company logo
+│   ├── sounds/                         # Sound files
+│   │   └── notification.mp3            # Notification sound
+│   └── themes/                         # Theme configurations
+│       └── hyprland/                   # Hyprland themes
+│           ├── dark.conf               # Dark theme config
+│           └── light.conf              # Light theme config
+├── scripts/                            # Shared scripts
+│   ├── utilities/                      # Utility scripts
+│   │   ├── update-system.sh            # System update script
+│   │   └── backup.sh                   # Backup script
+│   └── aliases/                        # Shell aliases
+│       └── default.nix                 # Shell aliases definition
+├── env/                                # Environment variables
+│   ├── default.nix                     # Common variables
+│   └── users/                          # User-specific variables
+│       └── yourusername.nix            # Your environment variables
+├── secrets/                            # Encrypted secrets
+│   └── .gitignore                      # Ignore secrets in git
+├── overlays/                           # Package overlays
+│   ├── default.nix                     # Common overlay settings
+│   └── custom-font.nix                 # Custom font package
+└── lib/                                # Helper Nix functions
+    ├── default.nix                     # Re-exports all functions
+    └── utils.nix                       # Utility functions
 ```
 
 ## Installation
