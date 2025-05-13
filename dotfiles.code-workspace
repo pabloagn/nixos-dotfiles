@@ -114,7 +114,7 @@
           {
             "scope": "variable.other.rust",
             "settings": {
-              "foreground": "#ffff00"
+              "foreground": "#e7d721"
             }
           }
         ]
@@ -386,6 +386,8 @@
       // Nix
       "jnoortheen.nix-ide",
       "bbenoist.Nix",
+      "mkhl.direnv",
+      "pinage404.nix-extension-pack",
 
       // Lua
       "sumneko.lua",
