@@ -24,8 +24,8 @@
             pname = "color-provider";
             version = "0.1.0";
             src = ./tools;
-            rootCargoToml = "color-provider/Cargo.toml";
-            cargoLock.lockFile = ./Cargo.lock;
+            rootCargoToml = "./color-provider/Cargo.toml";
+            cargoLock.lockFile = ./tools/Cargo.lock;
           };
 
           # Nixos CLI Package
@@ -33,8 +33,8 @@
             pname = "nixos-cli";
             version = "0.1.0";
             src = ./tools;
-            rootCargoToml = "nixos-cli/Cargo.toml";
-            cargoLock.lockFile = ./Cargo.lock;
+            rootCargoToml = "./nixos-cli/Cargo.toml";
+            cargoLock.lockFile = ./tools/Cargo.lock;
           };
 
           # Default package
